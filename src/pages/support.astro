@@ -8,7 +8,7 @@ const privacyHref = `${import.meta.env.BASE_URL}privacy/`;
 <Layout title="Support - SaunaMind">
 	<nav class="sm-nav">
 		<a href={homeHref} class="sm-logo">
-			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAYAAAB/HSuDAABQlElEQVR4nO3daZilZX3g/18t3V1dve8NDQ3ddAOyNIvsKiIouGMS15AomkkycSYxi5ktmcnkmrmSMUy2GaOJ0YwxIVecvzhGTVTUFhABBVnaZmugWbvpDXqvXqvq/4Ktq05VddU5z3m2+/N5E/vQnHNXpaqo3/e+n+d09Pb2DgYAAABQa51FLwAAAABoPwEAAAAAEiAAAAAAQAIEAAAAAEiAAAAAAAAJEAAAAAAgAQIAAAAAJEAAAAAAgAQIAAAAAJAAAQAAAAASIAAAAABAAgQAAAAASIAAAAAAAAkQAAAAACABAgAAAAAkQAAAAACABAgAAAAAkAABAAAAABIgAAAAAEACBAAAAABIgAAAAAAACRAAAAAAIAECAAAAACRAAAAAAIAECAAAAACQAAEAAAAAEiAAAAAAQAIEAAAAAEiAAAAAAAAJEAAAAAAgAQIAAAAAJEAAAAAAgAQIAAAAAJAAAQAAAAASIAAAAABAAgQAAAAASIAAAAAAAAkQAAAAACABAgAAAAAkQAAAAACABAgAAAAAkAABAAAAABIgAAAAAEACBAAAAABIgAAAAAAACRAAAAAAIAECAAAAACRAAAAAAIAECAAAAACQAAEAAAAAEiAAAAAAQAIEAAAAAEiAAAAAAAAJEAAAAAAgAQIAAAAAJEAAAAAAgAQIAAAAAJAAAQAAAAASIAAAAABAAgQAAAAASIAAAAAAAAkQAAAAACABAgAAAAAkQAAAAACABAgAAAAAkAABAAAAABIgAAAAAEACBAAAAABIgAAAAAAACRAAAAAAIAECAAAAACRAAAAAAIAECAAAAACQAAEAAAAAEiAAAAAAQAIEAAAAAEiAAAAAAAAJEAAAAAAgAQIAAAAAJEAAAAAAgAT8/4b4RkXX7c/dAAAAAElFTkSuQmCC" alt="SaunaMind" width="40" height="40">
+			<img src="/logo.png" alt="SaunaMind" width="40" height="40">
 			<span class="sm-logo-text">SaunaMind</span>
 		</a>
 		<div class="sm-nav-links">
@@ -51,100 +51,123 @@ const privacyHref = `${import.meta.env.BASE_URL}privacy/`;
 </script>
 
 <style>
-	.doc-container {
-		max-width: 900px;
-		margin: 0 auto;
-		padding: 120px 48px 60px;
-	}
-	.doc-container h1 {
-		font-size: 56px;
-		font-weight: 900;
-		margin-bottom: 32px;
-		letter-spacing: -0.02em;
-	}
-	.doc-container h2 {
-		font-size: 24px;
-		font-weight: 700;
-		margin-top: 48px;
-		margin-bottom: 20px;
-		color: #E8956A;
-	}
-	.doc-container h3 {
-		font-size: 18px;
-		font-weight: 700;
-		margin-top: 24px;
-		margin-bottom: 12px;
-		color: #ddd;
-	}
-	.doc-container p {
-		font-size: 16px;
-		color: #aaa;
-		margin-bottom: 16px;
-		line-height: 1.8;
-	}
-	.faq-item {
-		background: #0e0e0e;
-		border: 1px solid #1a1a1a;
-		border-radius: 12px;
-		padding: 24px;
-		margin-bottom: 16px;
-		cursor: pointer;
-		transition: border-color 0.2s;
-	}
-	.faq-item:hover {
-		border-color: #2a2a2a;
-	}
-	.faq-question {
-		font-size: 18px;
-		font-weight: 700;
-		color: #E8956A;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 16px;
-	}
-	.faq-toggle {
-		font-size: 24px;
-		color: #666;
-		transition: transform 0.3s;
-	}
-	.faq-item.open .faq-toggle {
-		transform: rotate(180deg);
-	}
-	.faq-answer {
-		display: none;
-		margin-top: 16px;
-		font-size: 15px;
-		color: #888;
-		line-height: 1.8;
-	}
-	.faq-item.open .faq-answer {
-		display: block;
-	}
-	.contact-box {
-		background: #111;
-		border: 1px solid #1e1e1e;
-		border-radius: 16px;
-		padding: 36px;
-		margin-top: 48px;
-		text-align: center;
-	}
-	.contact-box h3 {
-		margin-top: 0;
-	}
-	.contact-link {
-		display: inline-block;
-		text-decoration: none;
-	}
-	@media (max-width: 768px) {
-		.doc-container {
-			padding: 100px 20px 40px;
-		}
-		.doc-container h1 {
-			font-size: 36px;
-		}
-		.doc-container h2 {
-			font-size: 20px;
-		}
-	}
+  .doc-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 48px;
+  }
+
+  .doc-container h1 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: clamp(40px, 7vw, 64px);
+    letter-spacing: -0.02em;
+    color: #eeeeee;
+    margin-bottom: 12px;
+  }
+
+  .doc-container > p:first-of-type {
+    font-size: 16px;
+    color: #555555;
+    margin-bottom: 40px;
+    line-height: 1.7;
+  }
+
+  .doc-container h2 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #E8956A;
+    margin-top: 44px;
+    margin-bottom: 14px;
+  }
+
+  .doc-container h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #eeeeee;
+    margin-top: 24px;
+    margin-bottom: 10px;
+  }
+
+  .doc-container p {
+    font-size: 16px;
+    color: #555555;
+    margin-bottom: 16px;
+    line-height: 1.8;
+  }
+
+  .faq-item {
+    background: #0e0e0e;
+    border: 1px solid #1a1a1a;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+
+  .faq-item:hover { border-color: #1e1e1e; }
+
+  .faq-question {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .faq-toggle {
+    font-size: 18px;
+    color: #E8956A;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+
+  .faq-item.open .faq-toggle { transform: rotate(180deg); }
+
+  .faq-answer {
+    display: none;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #1a1a1a;
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.8;
+  }
+
+  .faq-item.open .faq-answer { display: block; }
+
+  .contact-box {
+    background: #111111;
+    border: 1px solid #1e1e1e;
+    border-radius: 16px;
+    padding: 40px 36px;
+    margin-top: 48px;
+    text-align: center;
+  }
+
+  .contact-box h3 {
+    margin-top: 0;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: #eeeeee;
+    margin-bottom: 10px;
+  }
+
+  .contact-box p { margin-bottom: 24px; }
+
+  .contact-link {
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .doc-container { padding: 60px 20px; }
+  }
 </style>
