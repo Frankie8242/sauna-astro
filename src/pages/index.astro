@@ -7,10 +7,7 @@ const supportHref = `${import.meta.env.BASE_URL}support/`;
 ---
 
 <Layout title="SaunaMind - Know Your Zones">
-	<!-- Hidden forms for Netlify build-time detection -->
-	<form name="waitlist" data-netlify="true" netlify-honeypot="bot-field" hidden>
-		<input type="email" name="email">
-	</form>
+	<!-- Hidden form removed - using FormSubmit instead -->
 	<!-- NAV -->
 	<nav class="sm-nav">
 		<a href={homeHref} class="sm-logo">
@@ -152,6 +149,15 @@ const supportHref = `${import.meta.env.BASE_URL}support/`;
 			<div class="sm-eyebrow">Peer-Reviewed Research</div>
 			<h2 class="sm-h2">The data <span>behind it.</span></h2>
 			<p class="sm-section-sub" style="margin-bottom:0">Every zone threshold is grounded in published research. Not wellness trends. Not guesswork.</p>
+
+			<!-- LATEST PAPER -->
+			<div class="sm-sci-latest">
+				<div class="sm-sci-latest-badge">Latest</div>
+				<h3>Sauna Use & Dementia Risk</h3>
+				<p>Men who used the sauna 4–7 times per week had a 77% lower risk of developing dementia and a 65% lower risk of Alzheimer's disease compared to those who used it once per week. One of the most striking neuroprotection findings to date.</p>
+				<div class="sm-sci-source">Laukkanen et al. · Age and Ageing · 2017</div>
+			</div>
+
 			<div class="sm-science-grid">
 				<div class="sm-sci-card"><h3>Cardiovascular Protection</h3><p>Regular sauna use at sufficient core temperatures reduces risk of sudden cardiac death by up to 63% in the largest longitudinal study of its kind.</p><div class="sm-sci-source">Laukkanen et al. · JAMA Internal Medicine · 2018</div></div>
 				<div class="sm-sci-card"><h3>Growth Hormone Surge</h3><p>Heat stress triggers a growth hormone surge of 2–5× baseline. The response is dose-dependent — more pronounced at higher core temperatures.</p><div class="sm-sci-source">Casanueva et al.</div></div>
@@ -159,6 +165,9 @@ const supportHref = `${import.meta.env.BASE_URL}support/`;
 				<div class="sm-sci-card"><h3>BDNF — Brain Growth Factor</h3><p>Brain-derived neurotrophic factor rises significantly with heat exposure. Linked to improved mood, neuroplasticity, and cognitive protection.</p><div class="sm-sci-source">Rhonda Patrick · FoundMyFitness</div></div>
 				<div class="sm-sci-card"><h3>Cortisol Reduction</h3><p>Post-session cortisol drops significantly. Heat activates the parasympathetic nervous system — the same pathway triggered by meditation.</p><div class="sm-sci-source">Laukkanen et al. · Kukkonen-Harjula et al.</div></div>
 				<div class="sm-sci-card"><h3>Norepinephrine Spike</h3><p>Norepinephrine spikes up to 3× during heat exposure — sharpening focus and mood. The effect extends well beyond the session itself.</p><div class="sm-sci-source">Srámek et al. · Journal of Applied Physiology · 2000</div></div>
+				<div class="sm-sci-card"><h3>All-Cause Mortality</h3><p>Frequent sauna users show a 40% lower risk of all-cause mortality. The benefit scales with frequency — more sessions, stronger the effect.</p><div class="sm-sci-source">Laukkanen et al. · JAMA Internal Medicine · 2018</div></div>
+				<div class="sm-sci-card"><h3>Hypertension in Women</h3><p>Women who used the sauna regularly showed a 46% lower risk of developing high blood pressure — a significant finding for cardiovascular health across sexes.</p><div class="sm-sci-source">Zaccardi et al. · American Journal of Hypertension · 2017</div></div>
+				<div class="sm-sci-card"><h3>Plasma Volume Expansion</h3><p>Repeated heat exposure increases plasma volume, improving oxygen delivery to muscles. This adaptation mirrors the effects of moderate aerobic training.</p><div class="sm-sci-source">Minson et al. · American Journal of Physiology · 2000</div></div>
 			</div>
 		</div>
 	</section>
@@ -195,7 +204,7 @@ const supportHref = `${import.meta.env.BASE_URL}support/`;
 
 
 
-<script>
+<script is:inline>
 async function smSubmit(inputId, successId, formId) {
   var input = document.getElementById(inputId);
   var success = document.getElementById(successId);
@@ -208,16 +217,18 @@ async function smSubmit(inputId, successId, formId) {
   var btn = form ? form.querySelector('button') : null;
   if(btn) { btn.textContent='Sending...'; btn.disabled=true; }
   try {
-    var body = new URLSearchParams({'form-name':'waitlist', email: input.value}).toString();
-    var res = await fetch('/', {
+    var res = await fetch('https://formsubmit.co/ajax/francois.pienaar@gmail.com', {
       method:'POST',
-      headers:{'Content-Type':'application/x-www-form-urlencoded'},
-      body: body
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        email: input.value,
+        _subject: 'New SaunaMind Early Access Signup',
+        _captcha: 'false'
+      })
     });
     if(res.ok) {
       if(form) form.style.display='none';
-      input.style.display='none';
-      success.style.display='block';
+      if(success) { success.style.display='block'; }
     } else {
       if(btn) { btn.textContent='Try again'; btn.disabled=false; }
       input.style.borderColor='#F44336';
