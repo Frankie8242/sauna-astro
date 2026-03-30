@@ -4,3 +4,15 @@
 
 [build.environment]
   NODE_VERSION = "20"
+
+[[redirects]]
+  from = "https://knowyourzones.com/*"
+  to = "https://sauna-mind.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.knowyourzones.com/*"
+  to = "https://sauna-mind.com/:splat"
+  status = 301
+  force = true
