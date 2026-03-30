@@ -202,17 +202,40 @@ const canonical = `https://sauna-mind.com${Astro.url.pathname}`;
       .sm-footer-copy { font-size:13px; color:#2a2a2a; }
 
       /* RESPONSIVE */
+      @media(max-width:1024px) {
+        .sm-nav { padding:14px 24px; }
+        .sm-nav-links { gap:20px; }
+        .sm-section { padding:48px 32px; }
+        .sm-h2 { font-size:clamp(40px,6vw,72px); }
+        .sm-science-grid { grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); }
+      }
       @media(max-width:768px) {
         .sm-nav { padding:14px 20px; }
         .sm-nav-links .sm-nav-link { display:none; }
         .sm-nav .sm-logo-text { display:none; }
+        .sm-nav-btn { padding:10px 18px; font-size:13px; }
+        .sm-hero { padding:80px 20px 40px; }
+        .sm-hero-stat { padding:24px 20px; margin-bottom:32px; }
+        .sm-hero-stat-num { font-size:40px; }
+        .sm-hero-stat-label { font-size:14px; }
+        .sm-hero-form { flex-direction:column; align-items:stretch; padding:0 8px; }
+        .sm-email-input { width:100%; }
+        .sm-submit-btn { width:100%; }
+        .sm-trust { flex-direction:column; align-items:center; gap:10px; }
         .sm-section { padding:40px 20px; }
         .sm-stats { padding:24px 16px; }
         .sm-stat { padding:16px 20px; border-left:none !important; }
         .sm-stat + .sm-stat { border-top:1px solid #1e1e1e; }
-        .sm-footer { padding:24px; flex-direction:column; align-items:flex-start; }
+        .sm-sci-latest { padding:24px 20px; margin-top:24px; }
+        .sm-sci-latest h3 { font-size:18px; }
+        .sm-science-grid { grid-template-columns:1fr; }
+        .sm-sci-card { padding:24px 20px; }
+        .sm-formula-box { padding:24px 20px; }
+        .sm-waitlist { padding:40px 20px; }
+        .sm-waitlist h2 { font-size:clamp(44px,12vw,80px); }
+        .sm-waitlist-form { flex-direction:column; align-items:stretch; padding:0 8px; }
+        .sm-footer { padding:24px; flex-direction:column; align-items:flex-start; gap:12px; }
         .sm-table thead th:nth-child(3), .sm-table td:nth-child(3) { display:none; }
-        .sm-trust { gap:16px; }
         .sm-types-grid { grid-template-columns:1fr; }
         .sm-type-inner { padding:16px; overflow-x:auto; -webkit-overflow-scrolling:touch; }
         .sm-cmp-table { min-width:420px; }
@@ -225,6 +248,15 @@ const canonical = `https://sauna-mind.com${Astro.url.pathname}`;
         .sm-slider-temp { font-size:48px; }
         .sm-slider-zone { font-size:18px; }
         .sm-slider-desc { font-size:13px; }
+      }
+      @media(max-width:480px) {
+        .sm-hero-h1 { font-size:clamp(44px,14vw,80px); }
+        .sm-hero-explainer { font-size:16px; }
+        .sm-stat-num { font-size:30px; }
+        .sm-h2 { font-size:clamp(36px,11vw,60px); }
+        .sm-section-sub { font-size:16px; }
+        .sm-nav-btn { padding:9px 14px; font-size:12px; }
+        .sm-footer-links { flex-wrap:wrap; gap:12px; }
       }
     </style>
   </head>
