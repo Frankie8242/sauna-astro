@@ -19,14 +19,14 @@ const supportHref = `${import.meta.env.BASE_URL}support/`;
 			<a class="sm-nav-link" href="#research">Research</a>
 			<a class="sm-nav-link" href={privacyHref}>Privacy</a>
 			<a class="sm-nav-link" href={supportHref}>Support</a>
-			<button class="sm-nav-btn" onclick="document.getElementById('join').scrollIntoView({behavior:'smooth'})">Claim Founding Spot</button>
+			<a class="sm-nav-btn" href="https://apps.apple.com/app/saunamind" style="text-decoration:none;">Download App</a>
 		</div>
 	</nav>
 
 	<!-- HERO -->
 	<section class="sm-hero">
 		<div class="sm-hero-glow"></div><div class="sm-hero-logo-wrap"><img src="/logo.png" alt="SaunaMind" width="160" height="160"><div class="sm-hero-logo-text">SaunaMind</div><div class="sm-hero-logo-sub">Recovery Intelligence</div></div><div class="sm-hero-eyebrow">The world's first recovery intelligence platform for heat exposure</div>
-		<h1 class="sm-hero-h1">FOR LESS THAN A DOLLAR A WEEK.<span class="sm-orange">KNOW YOUR ZONES.</span></h1>
+		<h1 class="sm-hero-h1">KNOW YOUR ZONES.<span class="sm-orange">FEEL THE SCIENCE.</span></h1>
 		<p class="sm-hero-explainer">Real-time core body temperature. Five physiological zones. Science you can feel.</p>
 		<p class="sm-hero-sub">Every other sauna app runs a timer. SaunaMind tracks what's actually happening inside your body — in real time.</p>
 		<div class="sm-trust">
@@ -34,16 +34,15 @@ const supportHref = `${import.meta.env.BASE_URL}support/`;
 			<div class="sm-trust-item">Oura Ring · Polar H10 · Apple Watch</div>
 			<div class="sm-trust-item">Built by health obsessives</div>
 		</div>
-		<div class="sm-founding-offer" style="margin-top:32px; text-align:center;">
-			<a href="https://apps.apple.com/app/saunamind" class="sm-submit-btn" style="display:inline-block; text-decoration:none; font-size:1.1rem; padding:16px 40px;">Claim Your Founding Spot &rarr;</a>
-			<div class="sm-founding-meta" style="margin-top:16px; color:#8E9AAF; font-size:0.95rem;">
-				1,000 Founding Member spots — <strong style="color:#fff;">$19.99/yr</strong>, locked forever.
+		<div class="sm-app-download" style="margin-top:32px; text-align:center;">
+			<a href="https://apps.apple.com/app/saunamind" style="display:inline-block;">
+				<img src="/appstore-badge.svg" alt="Download on the App Store" width="180" height="60" style="transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+			</a>
+			<div style="margin-top:20px; color:#666; font-size:0.95rem;">
+				<strong style="color:#E8956A;">Founding Members</strong> — <strong style="color:#fff;">$19.99/yr</strong> <span style="color:#555;">(38&cent;/week)</span> · locked forever
 			</div>
-			<div class="sm-founding-bar" style="margin-top:12px; max-width:360px; margin-left:auto; margin-right:auto;">
-				<div style="background:#222; border-radius:6px; height:8px; overflow:hidden;">
-					<div style="background:linear-gradient(90deg,#E8622C,#F5A623); width:0%; height:100%; border-radius:6px;"></div>
-				</div>
-				<div style="color:#666; font-size:0.8rem; margin-top:6px;">0 of 1,000 claimed</div>
+			<div style="margin-top:8px; color:#444; font-size:0.85rem;">
+				Limited to 1,000 spots · <span style="color:#8E9AAF;">Standard price $79.99/yr</span>
 			</div>
 		</div>
 		<div class="sm-hero-stat" style="margin-top:48px;">
@@ -178,13 +177,15 @@ const supportHref = `${import.meta.env.BASE_URL}support/`;
 		</div>
 	</section>
 
-	<!-- FOUNDING MEMBER -->
+	<!-- DOWNLOAD -->
 	<section class="sm-waitlist" id="join">
 		<div class="sm-waitlist-glow"></div>
 		<div class="sm-waitlist-inner">
-			<h2>FOUNDING<br><span>MEMBER</span></h2>
-			<p class="sm-waitlist-p">You believe in us before the world does. We don't forget that.<br>1,000 spots. $19.99/yr. Locked forever.</p>
-			<a href="https://apps.apple.com/app/saunamind" class="sm-submit-btn" style="display:inline-block; text-decoration:none; font-size:1.1rem; padding:16px 40px; margin-top:16px;">Claim Your Founding Spot &rarr;</a>
+			<h2>DOWNLOAD<br><span>NOW</span></h2>
+			<p class="sm-waitlist-p">Available on the App Store. Founding Members get $19.99/yr — locked forever.<br>1,000 spots. Once they're gone, they're gone.</p>
+			<a href="https://apps.apple.com/app/saunamind" style="display:inline-block; margin-top:16px;">
+				<img src="/appstore-badge.svg" alt="Download on the App Store" width="180" height="60" style="transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+			</a>
 			<div style="margin-top:24px; color:#666; font-size:0.85rem;">
 				<div style="display:flex; justify-content:center; gap:32px; flex-wrap:wrap;">
 					<div><strong style="color:#E8622C;">Founding</strong> — $19.99/yr (38&cent;/week)</div>
@@ -213,40 +214,6 @@ const supportHref = `${import.meta.env.BASE_URL}support/`;
 
 
 <script is:inline>
-async function smSubmit(inputId, successId, formId) {
-  var input = document.getElementById(inputId);
-  var success = document.getElementById(successId);
-  var form = document.getElementById(formId);
-  if(!input || !input.value || !input.value.includes('@')) {
-    input.style.borderColor='#F44336';
-    setTimeout(function(){ input.style.borderColor=''; }, 1500);
-    return;
-  }
-  var btn = form ? form.querySelector('button') : null;
-  if(btn) { btn.textContent='Sending...'; btn.disabled=true; }
-  try {
-    var res = await fetch('https://formsubmit.co/ajax/francois.pienaar@gmail.com', {
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({
-        email: input.value,
-        _subject: 'New SaunaMind Early Access Signup',
-        _captcha: 'false'
-      })
-    });
-    if(res.ok) {
-      if(form) form.style.display='none';
-      if(success) { success.style.display='block'; }
-    } else {
-      if(btn) { btn.textContent='Try again'; btn.disabled=false; }
-      input.style.borderColor='#F44336';
-    }
-  } catch(e) {
-    if(btn) { btn.textContent='Try again'; btn.disabled=false; }
-    input.style.borderColor='#F44336';
-  }
-}
-
 var smFacts = [
   { num:'63%', label:'reduction in sudden cardiac death risk · Laukkanen et al., 2018' },
   { num:'2–5×', label:'growth hormone surge at peak core temperature · Casanueva et al.' },

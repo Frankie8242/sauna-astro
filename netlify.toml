@@ -16,3 +16,7 @@
   to = "https://sauna-mind.com/:splat"
   status = 301
   force = true
+
+# Netlify form notifications are configured in the Netlify UI
+# Go to: Site settings > Forms > Form notifications > Add notification
+# Select "Email notification" and set recipient to francois.pienaar@gmail.com

@@ -36,8 +36,16 @@ const privacyHref = `${import.meta.env.BASE_URL}privacy/`;
 		<div class="faq-item"><div class="faq-question">I'm not seeing zone transitions. Is the app broken?<span class="faq-toggle">▼</span></div><div class="faq-answer">If you're new to sauna, it may take several sessions to reach higher zones. Start in a moderately hot sauna and gradually increase temperature and duration as your tolerance improves.</div></div>
 		<div class="contact-box">
 			<h3>Still have questions?</h3>
-			<p>Reach out directly. Support emails are monitored closely and typically answered within 24 hours.</p>
-			<a class="sm-submit-btn contact-link" href="mailto:support@saunamind.com">Email Support</a>
+			<p>Send us a message and we'll get back to you within 24 hours.</p>
+			<form name="support" method="POST" data-netlify="true" id="supportForm" class="contact-form">
+				<input type="hidden" name="form-name" value="support" />
+				<input type="text" name="email" placeholder="Your email" required class="contact-input" />
+				<textarea name="message" placeholder="How can we help?" required rows="4" class="contact-input contact-textarea"></textarea>
+				<button type="submit" class="sm-submit-btn">Send Message</button>
+			</form>
+			<div id="supportSuccess" style="display:none;">
+				<p style="color:#E8956A; font-weight:600;">Message sent! We'll get back to you soon.</p>
+			</div>
 		</div>
 	</div>
 </Layout>
@@ -48,6 +56,33 @@ const privacyHref = `${import.meta.env.BASE_URL}privacy/`;
 			this.classList.toggle('open');
 		});
 	});
+
+	var supportForm = document.getElementById('supportForm');
+	if (supportForm) {
+		supportForm.addEventListener('submit', async function(e) {
+			e.preventDefault();
+			var btn = this.querySelector('button');
+			btn.textContent = 'Sending...';
+			btn.disabled = true;
+			try {
+				var res = await fetch('/', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+					body: new URLSearchParams(new FormData(this)).toString()
+				});
+				if (res.ok) {
+					this.style.display = 'none';
+					document.getElementById('supportSuccess').style.display = 'block';
+				} else {
+					btn.textContent = 'Try again';
+					btn.disabled = false;
+				}
+			} catch(err) {
+				btn.textContent = 'Try again';
+				btn.disabled = false;
+			}
+		});
+	}
 </script>
 
 <style>
@@ -166,6 +201,30 @@ const privacyHref = `${import.meta.env.BASE_URL}privacy/`;
     display: inline-block;
     text-decoration: none;
   }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .contact-input {
+    background: #0a0a0a;
+    border: 1px solid #222;
+    border-radius: 10px;
+    padding: 14px 16px;
+    color: #eee;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .contact-input:focus { border-color: #E8956A; }
+
+  .contact-textarea { resize: vertical; min-height: 100px; }
 
   @media (max-width: 768px) {
     .doc-container { padding: 60px 20px; }
