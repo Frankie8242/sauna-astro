@@ -19,27 +19,33 @@ const supportHref = `${import.meta.env.BASE_URL}support/`;
 			<a class="sm-nav-link" href="#research">Research</a>
 			<a class="sm-nav-link" href={privacyHref}>Privacy</a>
 			<a class="sm-nav-link" href={supportHref}>Support</a>
-			<button class="sm-nav-btn" onclick="document.getElementById('join').scrollIntoView({behavior:'smooth'})">Get Early Access</button>
+			<button class="sm-nav-btn" onclick="document.getElementById('join').scrollIntoView({behavior:'smooth'})">Claim Founding Spot</button>
 		</div>
 	</nav>
 
 	<!-- HERO -->
 	<section class="sm-hero">
-		<div class="sm-hero-glow"></div><div class="sm-hero-logo-wrap"><img src="/logo.png" alt="SaunaMind" width="160" height="160"><div class="sm-hero-logo-text">SaunaMind</div><div class="sm-hero-logo-sub">Know your zones.</div></div><div class="sm-hero-eyebrow">Science-backed heat tracking</div>
-		<h1 class="sm-hero-h1">NOT TIME.<span class="sm-orange">TEMPERATURE.</span></h1>
-		<p class="sm-hero-explainer">SaunaMind tracks your sauna sessions using estimated core body temperature — guided by peer-reviewed research, not guesswork.</p>
-		<p class="sm-hero-sub">Most people count minutes. The science measures what's actually happening inside your body.</p>
+		<div class="sm-hero-glow"></div><div class="sm-hero-logo-wrap"><img src="/logo.png" alt="SaunaMind" width="160" height="160"><div class="sm-hero-logo-text">SaunaMind</div><div class="sm-hero-logo-sub">Recovery Intelligence</div></div><div class="sm-hero-eyebrow">The world's first recovery intelligence platform for heat exposure</div>
+		<h1 class="sm-hero-h1">FOR LESS THAN A DOLLAR A WEEK.<span class="sm-orange">KNOW YOUR ZONES.</span></h1>
+		<p class="sm-hero-explainer">Real-time core body temperature. Five physiological zones. Science you can feel.</p>
+		<p class="sm-hero-sub">Every other sauna app runs a timer. SaunaMind tracks what's actually happening inside your body — in real time.</p>
 		<div class="sm-trust">
-			<div class="sm-trust-item">Based on 20 years of Finnish research</div>
-			<div class="sm-trust-item">2,315-person longitudinal study</div>
+			<div class="sm-trust-item">Military-validated algorithm</div>
+			<div class="sm-trust-item">Oura Ring · Polar H10 · Apple Watch</div>
 			<div class="sm-trust-item">Built by health obsessives</div>
 		</div>
-		<div class="sm-hero-form" id="heroForm">
-			<input type="email" class="sm-email-input" id="heroEmail" placeholder="your@email.com">
-			<button class="sm-submit-btn" onclick="smSubmit('heroEmail','heroSuccess','heroForm')">Get Early Access</button>
+		<div class="sm-founding-offer" style="margin-top:32px; text-align:center;">
+			<a href="https://apps.apple.com/app/saunamind" class="sm-submit-btn" style="display:inline-block; text-decoration:none; font-size:1.1rem; padding:16px 40px;">Claim Your Founding Spot &rarr;</a>
+			<div class="sm-founding-meta" style="margin-top:16px; color:#8E9AAF; font-size:0.95rem;">
+				1,000 Founding Member spots — <strong style="color:#fff;">$19.99/yr</strong>, locked forever.
+			</div>
+			<div class="sm-founding-bar" style="margin-top:12px; max-width:360px; margin-left:auto; margin-right:auto;">
+				<div style="background:#222; border-radius:6px; height:8px; overflow:hidden;">
+					<div style="background:linear-gradient(90deg,#E8622C,#F5A623); width:0%; height:100%; border-radius:6px;"></div>
+				</div>
+				<div style="color:#666; font-size:0.8rem; margin-top:6px;">0 of 1,000 claimed</div>
+			</div>
 		</div>
-		<div class="sm-success" id="heroSuccess">✓ You're on the list.</div>
-		<div class="sm-form-note">No spam. Just a notification when we're ready.</div>
 		<div class="sm-hero-stat" style="margin-top:48px;">
 			<div class="sm-hero-stat-num">63%</div>
 			<div class="sm-hero-stat-label">reduction in sudden cardiac death risk · Laukkanen et al., 2018</div>
@@ -172,18 +178,20 @@ const supportHref = `${import.meta.env.BASE_URL}support/`;
 		</div>
 	</section>
 
-	<!-- WAITLIST -->
+	<!-- FOUNDING MEMBER -->
 	<section class="sm-waitlist" id="join">
 		<div class="sm-waitlist-glow"></div>
 		<div class="sm-waitlist-inner">
-			<h2>GET <span>EARLY<br>ACCESS</span></h2>
-			<p class="sm-waitlist-p">Join the community being built around the science of heat.<br>No fluff. No guesswork. Just evidence-based protocols.</p>
-			<div class="sm-waitlist-form" id="wForm">
-				<input type="email" class="sm-email-input" id="wEmail" placeholder="your@email.com">
-				<button class="sm-submit-btn" onclick="smSubmit('wEmail','wSuccess','wForm')">Get Early Access</button>
+			<h2>FOUNDING<br><span>MEMBER</span></h2>
+			<p class="sm-waitlist-p">You believe in us before the world does. We don't forget that.<br>1,000 spots. $19.99/yr. Locked forever.</p>
+			<a href="https://apps.apple.com/app/saunamind" class="sm-submit-btn" style="display:inline-block; text-decoration:none; font-size:1.1rem; padding:16px 40px; margin-top:16px;">Claim Your Founding Spot &rarr;</a>
+			<div style="margin-top:24px; color:#666; font-size:0.85rem;">
+				<div style="display:flex; justify-content:center; gap:32px; flex-wrap:wrap;">
+					<div><strong style="color:#E8622C;">Founding</strong> — $19.99/yr (38&cent;/week)</div>
+					<div><strong style="color:#F5A623;">Early Adopter</strong> — $39.99/yr</div>
+					<div><strong style="color:#8E9AAF;">Standard</strong> — $79.99/yr</div>
+				</div>
 			</div>
-			<div class="sm-success" id="wSuccess">✓ You're on the list. We'll be in touch.</div>
-			<div class="sm-form-note" style="margin-top:16px;">No spam. Just a notification when we're ready.</div>
 		</div>
 	</section>
 
