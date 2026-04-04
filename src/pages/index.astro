@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 const homeHref = import.meta.env.BASE_URL;
 const privacyHref = `${import.meta.env.BASE_URL}privacy/`;
 const supportHref = `${import.meta.env.BASE_URL}support/`;
+const guideHref = `${import.meta.env.BASE_URL}guide/`;
 ---
 
 <Layout title="SaunaMind - Know Your Zones">
@@ -17,6 +18,7 @@ const supportHref = `${import.meta.env.BASE_URL}support/`;
 			<a class="sm-nav-link" href="#zones">The Science</a>
 			<a class="sm-nav-link" href="#research">Research</a>
 			<a class="sm-nav-link" href="#pricing">Pricing</a>
+			<a class="sm-nav-link" href={guideHref}>Guide</a>
 			<a class="sm-nav-link" href={privacyHref}>Privacy</a>
 			<a class="sm-nav-link" href={supportHref}>Support</a>
 			<a class="sm-nav-btn" href="https://apps.apple.com/app/saunamind" style="text-decoration:none;">Download</a>

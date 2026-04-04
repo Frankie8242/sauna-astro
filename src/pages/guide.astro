@@ -1,0 +1,552 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const homeHref = import.meta.env.BASE_URL;
+const privacyHref = `${import.meta.env.BASE_URL}privacy/`;
+const supportHref = `${import.meta.env.BASE_URL}support/`;
+---
+
+<Layout title="User Guide - SaunaMind" description="Learn how to use SaunaMind to track your sauna sessions, understand your zones, and optimise your heat exposure.">
+	<nav class="sm-nav">
+		<a href={homeHref} class="sm-logo">
+			<img src="/logo.png" alt="SaunaMind" width="40" height="40">
+			<span class="sm-logo-text">SaunaMind</span>
+		</a>
+		<div class="sm-nav-links">
+			<a class="sm-nav-link" href={homeHref}>Home</a>
+			<a class="sm-nav-link" href={privacyHref}>Privacy</a>
+			<a class="sm-nav-link" href={supportHref}>Support</a>
+		</div>
+	</nav>
+
+	<div class="guide-container">
+		<h1>User Guide</h1>
+		<p class="guide-intro">Everything you need to get started with SaunaMind and make the most of every session.</p>
+
+		<!-- Table of Contents -->
+		<div class="guide-toc">
+			<div class="toc-label">In this guide</div>
+			<a href="#introduction" class="toc-link">Introduction</a>
+			<a href="#getting-started" class="toc-link">Getting Started</a>
+			<a href="#how-it-works" class="toc-link">How SaunaMind Works</a>
+			<a href="#tracking-sessions" class="toc-link">Tracking Sessions</a>
+			<a href="#zones" class="toc-link">Understanding Zones</a>
+			<a href="#wearables" class="toc-link">Heart Rate Monitors</a>
+			<a href="#subscriptions" class="toc-link">Subscriptions</a>
+			<a href="#troubleshooting" class="toc-link">Troubleshooting</a>
+		</div>
+
+		<!-- Introduction -->
+		<section id="introduction">
+			<h2>Introduction</h2>
+			<p>SaunaMind is the first app that tracks what actually matters in a sauna: your core body temperature. Instead of watching the clock, SaunaMind estimates your internal temperature in real time and maps it to five science-backed benefit zones.</p>
+			<p>The result: you know exactly when your body enters the zones where cardiovascular benefits, heat shock protein activation, and deep hormesis occur &mdash; backed by peer-reviewed research from Laukkanen, Jay &amp; Kenny, and others.</p>
+		</section>
+
+		<!-- Getting Started -->
+		<section id="getting-started">
+			<h2>Getting Started</h2>
+			<div class="guide-steps">
+				<div class="guide-step">
+					<div class="step-number">1</div>
+					<div class="step-content">
+						<h3>Download &amp; Sign Up</h3>
+						<p>Download SaunaMind from the App Store and create your account with email and password.</p>
+					</div>
+				</div>
+				<div class="guide-step">
+					<div class="step-number">2</div>
+					<div class="step-content">
+						<h3>Choose Your Sauna Type</h3>
+						<p>Select your primary sauna: Traditional/Finnish, Infrared, or Steam. This calibrates the temperature model &mdash; infrared heats tissue differently than convective heat, so the type matters.</p>
+					</div>
+				</div>
+				<div class="guide-step">
+					<div class="step-number">3</div>
+					<div class="step-content">
+						<h3>Set Your Goals</h3>
+						<p>Tell us what you're after &mdash; cardiovascular health, recovery, longevity, stress relief, or general wellness. This helps the AI coach personalise recommendations.</p>
+					</div>
+				</div>
+				<div class="guide-step">
+					<div class="step-number">4</div>
+					<div class="step-content">
+						<h3>Connect a Heart Rate Monitor (Optional)</h3>
+						<p>For the most accurate eCBT readings, pair a Bluetooth heart rate strap (Polar, Wahoo, Garmin, CooSpo, or any standard HR monitor). Without one, SaunaMind uses a time-based estimation model.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- How It Works -->
+		<section id="how-it-works">
+			<h2>How SaunaMind Works</h2>
+			<div class="guide-card">
+				<h3>Estimated Core Body Temperature (eCBT)</h3>
+				<p>Your core body temperature is the key metric. SaunaMind calculates it using a peer-reviewed formula:</p>
+				<div class="formula-box">
+					<code>eCBT = 37.0 + (HR &minus; restingHR) &times; 0.0162</code>
+					<span class="formula-source">Jay &amp; Kenny, 2010 &mdash; Eur J Appl Physiol</span>
+				</div>
+				<p>When a heart rate monitor is connected, this formula provides real-time eCBT based on your actual physiological response. Without an HR monitor, a time-based model estimates your temperature using sauna type and room temperature.</p>
+			</div>
+			<div class="guide-card">
+				<h3>Why Not Just Use a Timer?</h3>
+				<p>Two people in the same sauna for the same duration reach completely different core temperatures. Fitness level, hydration, acclimatisation, and body composition all affect your heat response. SaunaMind measures <em>you</em>, not the clock.</p>
+			</div>
+		</section>
+
+		<!-- Tracking Sessions -->
+		<section id="tracking-sessions">
+			<h2>Tracking Sessions</h2>
+			<div class="guide-card">
+				<h3>Starting a Session</h3>
+				<p>Open the Session tab and tap Start. SaunaMind supports three session phases:</p>
+				<ul class="guide-list">
+					<li><strong>Training</strong> &mdash; Pre-sauna exercise. Tracks heart rate and exercise zones.</li>
+					<li><strong>Sauna</strong> &mdash; The main event. Tracks eCBT and benefit zones in real time.</li>
+					<li><strong>Cold Plunge</strong> &mdash; Post-sauna cold exposure. Tracks HR recovery.</li>
+				</ul>
+				<p>You can use any combination of these phases in a single session.</p>
+			</div>
+			<div class="guide-card">
+				<h3>During Your Session</h3>
+				<p>The main screen shows your current eCBT, active zone, heart rate, and elapsed time. The zone bar fills as you progress through each threshold. If you leave the app, your session continues in the background and picks up where you left off.</p>
+			</div>
+			<div class="guide-card">
+				<h3>Session History</h3>
+				<p>Every session is saved automatically. The History tab shows all past sessions with filters for sauna, cold plunge, contrast (sauna + cold), and training sessions. Tap any session for a detailed view including your temperature curve and zone transitions.</p>
+			</div>
+		</section>
+
+		<!-- Zones -->
+		<section id="zones">
+			<h2>Understanding Zones</h2>
+			<p>SaunaMind maps your eCBT to five physiological benefit zones, each backed by published research:</p>
+			<div class="zone-grid">
+				<div class="zone-card zone-1">
+					<div class="zone-header">
+						<span class="zone-name">Warm-Up</span>
+						<span class="zone-range">37.0 &ndash; 37.5&deg;C</span>
+					</div>
+					<p>Vasodilation begins. Blood flow increases to the skin and cardiovascular system warms up.</p>
+				</div>
+				<div class="zone-card zone-2">
+					<div class="zone-header">
+						<span class="zone-name">Heat Adaptation</span>
+						<span class="zone-range">37.5 &ndash; 38.0&deg;C</span>
+					</div>
+					<p>Plasma volume expands. Sweating peaks and your body builds heat tolerance.</p>
+				</div>
+				<div class="zone-card zone-3">
+					<div class="zone-header">
+						<span class="zone-name">HSP Activation</span>
+						<span class="zone-range">38.0 &ndash; 38.5&deg;C</span>
+					</div>
+					<p>Heat shock proteins deploy for cellular repair and protection. This is where measurable benefits begin.</p>
+				</div>
+				<div class="zone-card zone-4">
+					<div class="zone-header">
+						<span class="zone-name">Deep Hormesis</span>
+						<span class="zone-range">38.5 &ndash; 39.0&deg;C</span>
+					</div>
+					<p>Strong HSP70 induction, FOXO3 activation, and autophagy. Growth hormone surges and longevity markers peak.</p>
+				</div>
+				<div class="zone-card zone-5">
+					<div class="zone-header">
+						<span class="zone-name">Caution</span>
+						<span class="zone-range">&ge; 39.0&deg;C</span>
+					</div>
+					<p>Benefits plateau and heat risk rises. Exit the sauna and begin cooling down.</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Wearables -->
+		<section id="wearables">
+			<h2>Heart Rate Monitors</h2>
+			<div class="guide-card">
+				<h3>Supported Devices</h3>
+				<p>SaunaMind works with any Bluetooth Low Energy heart rate monitor that uses the standard Heart Rate Service. Tested and verified devices include:</p>
+				<ul class="guide-list">
+					<li>Polar H10, H9, OH1, Verity Sense</li>
+					<li>Wahoo TICKR, TICKR X, TICKR FIT</li>
+					<li>Garmin HRM-Pro, HRM-Dual</li>
+					<li>CooSpo H808S, H6</li>
+					<li>Magene H303, H64</li>
+					<li>Scosche Rhythm+, Rhythm24</li>
+				</ul>
+			</div>
+			<div class="guide-card">
+				<h3>Connecting Your Monitor</h3>
+				<p>Wet the sensor pads, put on your strap, then open SaunaMind. The app scans for nearby HR monitors automatically. Tap your device in the list to connect. Once paired, it reconnects automatically in future sessions.</p>
+			</div>
+			<div class="guide-card">
+				<h3>Oura Ring</h3>
+				<p>Connect your Oura Ring via the Profile tab for daily readiness metrics, sleep data, and HRV tracking. Oura session HR data is also used to backfill heart rate for sessions where a BLE strap wasn't available.</p>
+			</div>
+		</section>
+
+		<!-- Subscriptions -->
+		<section id="subscriptions">
+			<h2>Subscriptions</h2>
+			<div class="guide-card">
+				<h3>What's Included</h3>
+				<p>SaunaMind offers a Pro subscription that unlocks the full experience:</p>
+				<ul class="guide-list">
+					<li>Unlimited session tracking with full zone analysis</li>
+					<li>AI Coach &mdash; personalised advice powered by GPT-4o</li>
+					<li>Advanced session history and trend analysis</li>
+					<li>Wearable integrations (Oura, Garmin, Whoop)</li>
+					<li>PDF session reports</li>
+				</ul>
+				<p>Subscriptions are managed through the App Store. You can cancel or change your plan at any time in your iPhone's Settings &gt; Subscriptions.</p>
+			</div>
+		</section>
+
+		<!-- Troubleshooting -->
+		<section id="troubleshooting">
+			<h2>Troubleshooting</h2>
+			<div class="faq-item">
+				<div class="faq-question">My heart rate monitor won't connect<span class="faq-toggle">&darr;</span></div>
+				<div class="faq-answer">Make sure the strap sensor pads are wet, Bluetooth is enabled on your iPhone, and no other app is connected to the monitor. Restart the monitor by removing and re-attaching it, then try again.</div>
+			</div>
+			<div class="faq-item">
+				<div class="faq-question">My zone estimate seems too low<span class="faq-toggle">&darr;</span></div>
+				<div class="faq-answer">Without a heart rate monitor, the time-based model may underestimate your response, especially if you're well-acclimatised. Connecting an HR strap gives the most accurate readings. Also check that your sauna type is set correctly in your profile.</div>
+			</div>
+			<div class="faq-item">
+				<div class="faq-question">My session disappeared after closing the app<span class="faq-toggle">&darr;</span></div>
+				<div class="faq-answer">Sessions persist in the background. If you reopen the app, you should see a banner to resume your active session. Make sure Background App Refresh is enabled in your iPhone Settings for SaunaMind.</div>
+			</div>
+			<div class="faq-item">
+				<div class="faq-question">The AI Coach isn't responding<span class="faq-toggle">&darr;</span></div>
+				<div class="faq-answer">The AI Coach requires an internet connection. Check your connectivity and try again. If the issue persists, close and reopen the app.</div>
+			</div>
+			<div class="faq-item">
+				<div class="faq-question">How do I cancel my subscription?<span class="faq-toggle">&darr;</span></div>
+				<div class="faq-answer">Go to iPhone Settings &gt; your name &gt; Subscriptions &gt; SaunaMind. You can cancel or change your plan there. Your access continues until the end of the current billing period.</div>
+			</div>
+
+			<div class="contact-cta">
+				<p>Still need help? <a href={supportHref}>Contact our support team</a></p>
+			</div>
+		</section>
+	</div>
+</Layout>
+
+<script>
+	document.querySelectorAll('.faq-item').forEach((item) => {
+		item.addEventListener('click', function () {
+			this.classList.toggle('open');
+		});
+	});
+</script>
+
+<style>
+	.guide-container {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 80px 48px 100px;
+	}
+
+	.guide-container h1 {
+		font-family: 'Barlow Condensed', sans-serif;
+		font-weight: 900;
+		font-size: clamp(40px, 7vw, 64px);
+		letter-spacing: -0.01em;
+		color: var(--cream);
+		margin-bottom: 12px;
+	}
+
+	.guide-intro {
+		font-size: 16px;
+		color: var(--cream-dim);
+		margin-bottom: 40px;
+		line-height: 1.65;
+	}
+
+	/* Table of Contents */
+	.guide-toc {
+		background: var(--dark3);
+		border: 1px solid var(--border);
+		padding: 24px 28px;
+		margin-bottom: 56px;
+	}
+
+	.toc-label {
+		font-family: 'Barlow Condensed', sans-serif;
+		font-weight: 700;
+		font-size: 13px;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--orange);
+		margin-bottom: 16px;
+	}
+
+	.toc-link {
+		display: block;
+		font-size: 14px;
+		color: var(--cream-dim);
+		text-decoration: none;
+		padding: 6px 0;
+		border-bottom: 1px solid rgba(240,237,230,0.04);
+		transition: color 0.2s;
+	}
+
+	.toc-link:last-child { border-bottom: none; }
+	.toc-link:hover { color: var(--orange); }
+
+	/* Sections */
+	section {
+		margin-bottom: 56px;
+	}
+
+	.guide-container h2 {
+		font-family: 'Barlow Condensed', sans-serif;
+		font-weight: 700;
+		font-size: 24px;
+		color: var(--orange);
+		margin-bottom: 20px;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		padding-top: 20px;
+	}
+
+	.guide-container p {
+		font-size: 15px;
+		color: var(--cream-dim);
+		margin-bottom: 16px;
+		line-height: 1.8;
+	}
+
+	.guide-container em { color: var(--cream); font-style: italic; }
+
+	/* Cards */
+	.guide-card {
+		background: var(--dark3);
+		border: 1px solid var(--border);
+		padding: 28px 28px 20px;
+		margin-bottom: 16px;
+	}
+
+	.guide-card h3 {
+		font-family: 'Barlow Condensed', sans-serif;
+		font-weight: 700;
+		font-size: 18px;
+		color: var(--cream);
+		margin-bottom: 12px;
+	}
+
+	.guide-card p:last-child { margin-bottom: 0; }
+
+	/* Steps */
+	.guide-steps {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.guide-step {
+		display: flex;
+		gap: 20px;
+		background: var(--dark3);
+		border: 1px solid var(--border);
+		padding: 24px 28px;
+	}
+
+	.step-number {
+		flex-shrink: 0;
+		width: 36px;
+		height: 36px;
+		background: var(--orange);
+		color: #fff;
+		font-family: 'Barlow Condensed', sans-serif;
+		font-weight: 800;
+		font-size: 18px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.step-content h3 {
+		font-family: 'Barlow Condensed', sans-serif;
+		font-weight: 700;
+		font-size: 17px;
+		color: var(--cream);
+		margin-bottom: 8px;
+	}
+
+	.step-content p {
+		font-size: 14px;
+		margin-bottom: 0;
+	}
+
+	/* Formula box */
+	.formula-box {
+		background: var(--dark4);
+		border: 1px solid rgba(232,93,4,0.2);
+		padding: 20px 24px;
+		margin: 16px 0 20px;
+		text-align: center;
+	}
+
+	.formula-box code {
+		display: block;
+		font-size: 16px;
+		color: var(--cream);
+		font-family: 'Barlow Condensed', sans-serif;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+		margin-bottom: 8px;
+	}
+
+	.formula-source {
+		font-size: 12px;
+		color: var(--cream-dim);
+		opacity: 0.6;
+	}
+
+	/* Lists */
+	.guide-list {
+		list-style: none;
+		padding: 0;
+		margin: 12px 0 16px;
+	}
+
+	.guide-list li {
+		font-size: 14px;
+		color: var(--cream-dim);
+		line-height: 1.8;
+		padding: 4px 0 4px 20px;
+		position: relative;
+	}
+
+	.guide-list li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 12px;
+		width: 6px;
+		height: 6px;
+		background: var(--orange);
+	}
+
+	.guide-list li strong { color: var(--cream); }
+
+	/* Zone Grid */
+	.zone-grid {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		margin-top: 20px;
+	}
+
+	.zone-card {
+		background: var(--dark3);
+		border: 1px solid var(--border);
+		padding: 20px 24px;
+		border-left: 3px solid transparent;
+	}
+
+	.zone-1 { border-left-color: var(--zone-blue); }
+	.zone-2 { border-left-color: var(--zone-green); }
+	.zone-3 { border-left-color: var(--zone-amber); }
+	.zone-4 { border-left-color: var(--zone-red); }
+	.zone-5 { border-left-color: var(--zone-danger); }
+
+	.zone-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 10px;
+	}
+
+	.zone-name {
+		font-family: 'Barlow Condensed', sans-serif;
+		font-weight: 700;
+		font-size: 16px;
+		color: var(--cream);
+	}
+
+	.zone-range {
+		font-family: 'Barlow Condensed', sans-serif;
+		font-weight: 600;
+		font-size: 13px;
+		color: var(--cream-dim);
+		letter-spacing: 0.03em;
+	}
+
+	.zone-card p {
+		font-size: 14px;
+		margin-bottom: 0;
+	}
+
+	/* FAQ (reused from support page) */
+	.faq-item {
+		background: var(--dark3);
+		border: 1px solid var(--border);
+		padding: 20px 24px;
+		margin-bottom: 10px;
+		cursor: pointer;
+		transition: border-color 0.2s;
+	}
+
+	.faq-item:hover { border-color: rgba(240,237,230,0.12); }
+
+	.faq-question {
+		font-family: 'Barlow Condensed', sans-serif;
+		font-weight: 600;
+		font-size: 16px;
+		letter-spacing: 0.02em;
+		color: var(--cream);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+	}
+
+	.faq-toggle {
+		font-size: 16px;
+		color: var(--orange);
+		transition: transform 0.3s;
+		flex-shrink: 0;
+	}
+
+	.faq-item.open .faq-toggle { transform: rotate(180deg); }
+
+	.faq-answer {
+		display: none;
+		margin-top: 14px;
+		padding-top: 14px;
+		border-top: 1px solid rgba(240,237,230,0.06);
+		font-size: 14px;
+		color: var(--cream-dim);
+		line-height: 1.8;
+	}
+
+	.faq-item.open .faq-answer { display: block; }
+
+	/* Contact CTA */
+	.contact-cta {
+		margin-top: 32px;
+		text-align: center;
+	}
+
+	.contact-cta a {
+		color: var(--orange);
+		text-decoration: none;
+		font-weight: 600;
+		transition: color 0.2s;
+	}
+
+	.contact-cta a:hover { color: var(--orange-light); }
+
+	@media (max-width: 768px) {
+		.guide-container { padding: 60px 20px 80px; }
+
+		.guide-step { flex-direction: column; gap: 12px; }
+
+		.zone-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+	}
+</style>
