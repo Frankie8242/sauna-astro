@@ -7,7 +7,6 @@ const supportHref = `${import.meta.env.BASE_URL}support/`;
 ---
 
 <Layout title="SaunaMind - Know Your Zones">
-	<!-- Hidden form removed - using FormSubmit instead -->
 	<!-- NAV -->
 	<nav class="sm-nav">
 		<a href={homeHref} class="sm-logo">
@@ -17,37 +16,53 @@ const supportHref = `${import.meta.env.BASE_URL}support/`;
 		<div class="sm-nav-links">
 			<a class="sm-nav-link" href="#zones">The Science</a>
 			<a class="sm-nav-link" href="#research">Research</a>
+			<a class="sm-nav-link" href="#pricing">Pricing</a>
 			<a class="sm-nav-link" href={privacyHref}>Privacy</a>
 			<a class="sm-nav-link" href={supportHref}>Support</a>
-			<a class="sm-nav-btn" href="https://apps.apple.com/app/saunamind" style="text-decoration:none;">Download App</a>
+			<a class="sm-nav-btn" href="https://apps.apple.com/app/saunamind" style="text-decoration:none;">Download</a>
 		</div>
 	</nav>
 
 	<!-- HERO -->
 	<section class="sm-hero">
-		<div class="sm-hero-glow"></div><div class="sm-hero-logo-wrap"><img src="/logo.png" alt="SaunaMind" width="160" height="160"><div class="sm-hero-logo-text">SaunaMind</div><div class="sm-hero-logo-sub">Recovery Intelligence</div></div><div class="sm-hero-eyebrow">The world's first recovery intelligence platform for heat exposure</div>
-		<h1 class="sm-hero-h1">KNOW YOUR ZONES.<span class="sm-orange">FEEL THE SCIENCE.</span></h1>
-		<p class="sm-hero-explainer">Real-time core body temperature. Five physiological zones. Science you can feel.</p>
-		<p class="sm-hero-sub">Every other sauna app runs a timer. SaunaMind tracks what's actually happening inside your body — in real time.</p>
-		<div class="sm-trust">
-			<div class="sm-trust-item">Military-validated algorithm</div>
-			<div class="sm-trust-item">Oura Ring · Polar H10 · Apple Watch</div>
-			<div class="sm-trust-item">Built by health obsessives</div>
-		</div>
-		<div class="sm-app-download" style="margin-top:32px; text-align:center;">
-			<a href="https://apps.apple.com/app/saunamind" style="display:inline-block;">
-				<img src="/appstore-badge.svg" alt="Download on the App Store" width="180" height="60" style="transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-			</a>
-			<div style="margin-top:20px; color:#666; font-size:0.95rem;">
-				<strong style="color:#E8956A;">Founding Members</strong> — <strong style="color:#fff;">$19.99/yr</strong> <span style="color:#555;">(38&cent;/week)</span> · locked forever
+		<div class="sm-thermal-bar"></div>
+		<div class="sm-hero-glow"></div>
+		<div style="position:relative;z-index:2;text-align:center;display:flex;flex-direction:column;align-items:center;">
+			<div class="sm-hero-logo-wrap">
+				<img src="/logo.png" alt="SaunaMind" width="120" height="120">
+				<div class="sm-hero-logo-text">SaunaMind</div>
+				<div class="sm-hero-logo-sub">Physiological Recovery Intelligence</div>
 			</div>
-			<div style="margin-top:8px; color:#444; font-size:0.85rem;">
-				Limited to 1,000 spots · <span style="color:#8E9AAF;">Standard price $79.99/yr</span>
+			<h1 class="sm-hero-h1">KNOW YOUR<br>ZONES.<span class="sm-orange">FEEL THE SCIENCE.</span></h1>
+			<p class="sm-hero-explainer">Real-time core body temperature. Five physiological zones.</p>
+			<p class="sm-hero-sub">Every other sauna app runs a timer. SaunaMind tracks what's actually happening inside your body — in real time.</p>
+			<div class="sm-trust">
+				<div class="sm-trust-item">Military-validated algorithm</div>
+				<div class="sm-trust-item">Oura Ring &middot; Polar H10 &middot; Apple Watch</div>
+				<div class="sm-trust-item">Peer-reviewed science</div>
 			</div>
-		</div>
-		<div class="sm-hero-stat" style="margin-top:48px;">
-			<div class="sm-hero-stat-num">63%</div>
-			<div class="sm-hero-stat-label">reduction in sudden cardiac death risk · Laukkanen et al., 2018</div>
+			<div style="margin-top:32px; text-align:center;">
+				<a href="https://apps.apple.com/app/saunamind" style="display:inline-block;">
+					<img src="/appstore-badge.svg" alt="Download on the App Store" width="180" height="60" style="transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+				</a>
+				<div style="margin-top:20px; color:var(--cream-dim); font-size:14px; font-family:'Barlow Condensed',sans-serif; letter-spacing:0.1em;">
+					<strong style="color:var(--orange);">Founding Members</strong> &mdash; <strong style="color:var(--cream);">$19.99/yr</strong> <span style="color:var(--cream-dim); opacity:0.6;">(38&cent;/week)</span> &middot; locked forever
+				</div>
+				<div style="margin-top:8px; color:var(--cream-dim); opacity:0.5; font-size:12px; font-family:'Barlow Condensed',sans-serif; letter-spacing:0.1em;">
+					Limited to 1,000 spots &middot; Standard price $79.99/yr
+				</div>
+			</div>
+			<div class="sm-zone-pills">
+				<div class="sm-zone-pill-item" style="background:rgba(59,139,245,0.15);color:var(--zone-blue);">Warm Up</div>
+				<div class="sm-zone-pill-item" style="background:rgba(34,212,122,0.15);color:var(--zone-green);">Adaptation</div>
+				<div class="sm-zone-pill-item" style="background:rgba(245,166,35,0.15);color:var(--zone-amber);">HSP Activation</div>
+				<div class="sm-zone-pill-item" style="background:rgba(245,59,59,0.15);color:var(--zone-red);">Deep Hormesis</div>
+				<div class="sm-zone-pill-item" style="background:rgba(196,23,23,0.15);color:var(--zone-danger);">Caution</div>
+			</div>
+			<div class="sm-hero-stat" style="margin-top:48px;">
+				<div class="sm-hero-stat-num">63%</div>
+				<div class="sm-hero-stat-label">reduction in sudden cardiac death risk &middot; Laukkanen et al., 2018</div>
+			</div>
 		</div>
 	</section>
 
@@ -56,52 +71,48 @@ const supportHref = `${import.meta.env.BASE_URL}support/`;
 		<div class="sm-stat"><div class="sm-stat-num">5</div><div class="sm-stat-label">Physiological Zones</div></div>
 		<div class="sm-stat"><div class="sm-stat-num">20yr</div><div class="sm-stat-label">Research Foundation</div></div>
 		<div class="sm-stat"><div class="sm-stat-num">2,315</div><div class="sm-stat-label">Finnish Study Participants</div></div>
-		<div class="sm-stat"><div class="sm-stat-num">5×</div><div class="sm-stat-label">GH Surge at Peak Zone</div></div>
+		<div class="sm-stat"><div class="sm-stat-num">5&times;</div><div class="sm-stat-label">GH Surge at Peak Zone</div></div>
 	</div>
 
 	<!-- ZONES -->
-	<section id="zones" style="background:#080808;">
+	<section id="zones" style="background:var(--dark);">
 		<div class="sm-section">
 			<div class="sm-eyebrow">The 5-Zone System</div>
 			<h2 class="sm-h2">Heat has <span>zones.</span></h2>
 			<p class="sm-section-sub">Estimated core body temperature — not minutes — is what the peer-reviewed research actually tracks.</p>
-			<div class="sm-color-bar">
-				<div style="background:#8E9AAF"></div><div style="background:#4CAF50"></div>
-				<div style="background:#FF9800"></div><div style="background:#E8956A"></div>
-				<div style="background:#F44336"></div>
-			</div>
+			<div class="sm-color-bar"></div>
 			<table class="sm-table">
 				<thead><tr><th>Zone</th><th>eCBT Range</th><th>Effect</th><th>Benefit</th></tr></thead>
 				<tbody>
 					<tr>
-						<td><div class="sm-zone-cell"><div class="sm-zone-dot" style="background:#8E9AAF"></div><span class="sm-zone-name" style="color:#8E9AAF">Warm-Up</span></div></td>
-						<td><span class="sm-zone-temp">37.0 – 37.5°C</span></td>
-						<td class="sm-zone-desc">Blood flow to skin · mild CV response</td>
-						<td><span class="sm-zone-pill" style="background:#0f1015;color:#8E9AAF">Preparation</span></td>
+						<td><div class="sm-zone-cell"><div class="sm-zone-dot" style="background:var(--zone-blue)"></div><span class="sm-zone-name" style="color:var(--zone-blue)">Warm-Up</span></div></td>
+						<td><span class="sm-zone-temp">37.0 &ndash; 37.5&deg;C</span></td>
+						<td class="sm-zone-desc">Blood flow to skin &middot; mild CV response</td>
+						<td><span class="sm-zone-pill" style="background:rgba(59,139,245,0.1);color:var(--zone-blue)">Preparation</span></td>
 					</tr>
 					<tr>
-						<td><div class="sm-zone-cell"><div class="sm-zone-dot" style="background:#4CAF50"></div><span class="sm-zone-name" style="color:#4CAF50">Heat Adaptation</span></div></td>
-						<td><span class="sm-zone-temp">37.5 – 38.0°C</span></td>
-						<td class="sm-zone-desc">Plasma volume ↑ · CV system adapting</td>
-						<td><span class="sm-zone-pill" style="background:#0d1a0d;color:#4CAF50">Endurance</span></td>
+						<td><div class="sm-zone-cell"><div class="sm-zone-dot" style="background:var(--zone-green)"></div><span class="sm-zone-name" style="color:var(--zone-green)">Heat Adaptation</span></div></td>
+						<td><span class="sm-zone-temp">37.5 &ndash; 38.0&deg;C</span></td>
+						<td class="sm-zone-desc">Plasma volume &uarr; &middot; CV system adapting</td>
+						<td><span class="sm-zone-pill" style="background:rgba(34,212,122,0.1);color:var(--zone-green)">Endurance</span></td>
 					</tr>
 					<tr>
-						<td><div class="sm-zone-cell"><div class="sm-zone-dot" style="background:#FF9800"></div><span class="sm-zone-name" style="color:#FF9800">HSP Activation</span></div></td>
-						<td><span class="sm-zone-temp">38.0 – 38.5°C</span></td>
-						<td class="sm-zone-desc">Heat shock proteins · cellular repair begins</td>
-						<td><span class="sm-zone-pill" style="background:#1a1000;color:#FF9800">Recovery</span></td>
+						<td><div class="sm-zone-cell"><div class="sm-zone-dot" style="background:var(--zone-amber)"></div><span class="sm-zone-name" style="color:var(--zone-amber)">HSP Activation</span></div></td>
+						<td><span class="sm-zone-temp">38.0 &ndash; 38.5&deg;C</span></td>
+						<td class="sm-zone-desc">Heat shock proteins &middot; cellular repair begins</td>
+						<td><span class="sm-zone-pill" style="background:rgba(245,166,35,0.1);color:var(--zone-amber)">Recovery</span></td>
 					</tr>
 					<tr>
-						<td><div class="sm-zone-cell"><div class="sm-zone-dot" style="background:#E8956A"></div><span class="sm-zone-name" style="color:#E8956A">Deep Hormesis</span></div></td>
-						<td><span class="sm-zone-temp">38.5 – 39.0°C</span></td>
-						<td class="sm-zone-desc">GH 2–5× baseline · BDNF rises · longevity markers peak</td>
-						<td><span class="sm-zone-pill" style="background:#1a0f08;color:#E8956A">Longevity</span></td>
+						<td><div class="sm-zone-cell"><div class="sm-zone-dot" style="background:var(--zone-red)"></div><span class="sm-zone-name" style="color:var(--zone-red)">Deep Hormesis</span></div></td>
+						<td><span class="sm-zone-temp">38.5 &ndash; 39.0&deg;C</span></td>
+						<td class="sm-zone-desc">GH 2&ndash;5&times; baseline &middot; BDNF rises &middot; longevity markers peak</td>
+						<td><span class="sm-zone-pill" style="background:rgba(245,59,59,0.1);color:var(--zone-red)">Longevity</span></td>
 					</tr>
 					<tr>
-						<td><div class="sm-zone-cell"><div class="sm-zone-dot" style="background:#F44336"></div><span class="sm-zone-name" style="color:#F44336">Caution</span></div></td>
-						<td><span class="sm-zone-temp">39.0°C+</span></td>
-						<td class="sm-zone-desc">Heat stress risk zone · benefits plateau</td>
-						<td><span class="sm-zone-pill" style="background:#1a0808;color:#F44336">Risk Zone</span></td>
+						<td><div class="sm-zone-cell"><div class="sm-zone-dot" style="background:var(--zone-danger)"></div><span class="sm-zone-name" style="color:var(--zone-danger)">Caution</span></div></td>
+						<td><span class="sm-zone-temp">39.0&deg;C+</span></td>
+						<td class="sm-zone-desc">Heat stress risk zone &middot; benefits plateau</td>
+						<td><span class="sm-zone-pill" style="background:rgba(196,23,23,0.1);color:var(--zone-danger)">Risk Zone</span></td>
 					</tr>
 				</tbody>
 			</table>
@@ -113,7 +124,7 @@ const supportHref = `${import.meta.env.BASE_URL}support/`;
 	</section>
 
 	<!-- SAUNA TYPES -->
-	<section style="background:#080808;">
+	<section style="background:var(--dark);">
 		<div class="sm-section">
 			<div class="sm-eyebrow">Sauna Types</div>
 			<h2 class="sm-h2">Compare <span>your heat.</span></h2>
@@ -122,57 +133,107 @@ const supportHref = `${import.meta.env.BASE_URL}support/`;
 				<thead>
 					<tr>
 						<th></th>
-						<th style="color:#4CAF50;">Infrared</th>
-						<th style="color:#E8956A;">Traditional</th>
-						<th style="color:#8E9AAF;">Steam Room</th>
+						<th style="color:var(--zone-green);">Infrared</th>
+						<th style="color:var(--orange);">Traditional</th>
+						<th style="color:var(--zone-blue);">Steam Room</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr><td>Temperature</td><td>45–60°C</td><td>80–100°C</td><td>40–50°C</td></tr>
-					<tr><td>Session length</td><td>30–45 min</td><td>10–20 min</td><td>15–20 min</td></tr>
-					<tr><td>Time to Zone 3</td><td>~25–40 min</td><td>~10–15 min</td><td>~30–45 min</td></tr>
-					<tr><td>Heat method</td><td>Tissue direct</td><td>Air → skin</td><td>Humid air</td></tr>
+					<tr><td>Temperature</td><td>45&ndash;60&deg;C</td><td>80&ndash;100&deg;C</td><td>40&ndash;50&deg;C</td></tr>
+					<tr><td>Session length</td><td>30&ndash;45 min</td><td>10&ndash;20 min</td><td>15&ndash;20 min</td></tr>
+					<tr><td>Time to Zone 3</td><td>&sim;25&ndash;40 min</td><td>&sim;10&ndash;15 min</td><td>&sim;30&ndash;45 min</td></tr>
+					<tr><td>Heat method</td><td>Tissue direct</td><td>Air &rarr; skin</td><td>Humid air</td></tr>
 					<tr><td>CV impact</td><td>Moderate</td><td>High</td><td>Moderate</td></tr>
 					<tr><td>Research</td><td>Growing</td><td>20+ years</td><td>Limited</td></tr>
 				</tbody>
 				<tfoot>
 					<tr>
 						<td></td>
-						<td><span class="sm-type-badge" style="background:rgba(76,175,80,0.12);color:#4CAF50;">Longer sessions</span></td>
-						<td><span class="sm-type-badge" style="background:rgba(232,149,106,0.12);color:#E8956A;">Fastest to zone</span></td>
-						<td><span class="sm-type-badge" style="background:rgba(142,154,175,0.12);color:#8E9AAF;">Slowest rise</span></td>
+						<td><span class="sm-type-badge" style="background:rgba(34,212,122,0.12);color:var(--zone-green);">Longer sessions</span></td>
+						<td><span class="sm-type-badge" style="background:rgba(232,93,4,0.12);color:var(--orange);">Fastest to zone</span></td>
+						<td><span class="sm-type-badge" style="background:rgba(59,139,245,0.12);color:var(--zone-blue);">Slowest rise</span></td>
 					</tr>
 				</tfoot>
 			</table>
-			<div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#2a2a2a; margin-top:24px;">Minson et al. · American Journal of Physiology</div>
+			<div class="sm-type-source">Minson et al. &middot; American Journal of Physiology</div>
 		</div>
 	</section>
 
 	<!-- SCIENCE -->
-	<section id="research" style="background:#060606; padding:20px 0 0 0;">
+	<section id="research" style="background:var(--dark); padding:20px 0 0 0;">
 		<div class="sm-section">
 			<div class="sm-eyebrow">Peer-Reviewed Research</div>
 			<h2 class="sm-h2">The data <span>behind it.</span></h2>
 			<p class="sm-section-sub" style="margin-bottom:0">Every zone threshold is grounded in published research. Not wellness trends. Not guesswork.</p>
 
-			<!-- LATEST PAPER -->
 			<div class="sm-sci-latest">
 				<div class="sm-sci-latest-badge">Latest</div>
 				<h3>Sauna Use & Dementia Risk</h3>
-				<p>Men who used the sauna 4–7 times per week had a 77% lower risk of developing dementia and a 65% lower risk of Alzheimer's disease compared to those who used it once per week. One of the most striking neuroprotection findings to date.</p>
-				<div class="sm-sci-source">Laukkanen et al. · Age and Ageing · 2017</div>
+				<p>Men who used the sauna 4&ndash;7 times per week had a 77% lower risk of developing dementia and a 65% lower risk of Alzheimer's disease compared to those who used it once per week.</p>
+				<div class="sm-sci-source">Laukkanen et al. &middot; Age and Ageing &middot; 2017</div>
 			</div>
 
 			<div class="sm-science-grid">
-				<div class="sm-sci-card"><h3>Cardiovascular Protection</h3><p>Regular sauna use at sufficient core temperatures reduces risk of sudden cardiac death by up to 63% in the largest longitudinal study of its kind.</p><div class="sm-sci-source">Laukkanen et al. · JAMA Internal Medicine · 2018</div></div>
-				<div class="sm-sci-card"><h3>Growth Hormone Surge</h3><p>Heat stress triggers a growth hormone surge of 2–5× baseline. The response is dose-dependent — more pronounced at higher core temperatures.</p><div class="sm-sci-source">Casanueva et al.</div></div>
-				<div class="sm-sci-card"><h3>Heat Shock Proteins</h3><p>HSP70 and HSP90 activate when core temperature crosses ~38°C. These molecular chaperones repair damaged proteins and reduce inflammation.</p><div class="sm-sci-source">Hussain et al. · Journal of Applied Physiology · 2019</div></div>
-				<div class="sm-sci-card"><h3>BDNF — Brain Growth Factor</h3><p>Brain-derived neurotrophic factor rises significantly with heat exposure. Linked to improved mood, neuroplasticity, and cognitive protection.</p><div class="sm-sci-source">Rhonda Patrick · FoundMyFitness</div></div>
-				<div class="sm-sci-card"><h3>Cortisol Reduction</h3><p>Post-session cortisol drops significantly. Heat activates the parasympathetic nervous system — the same pathway triggered by meditation.</p><div class="sm-sci-source">Laukkanen et al. · Kukkonen-Harjula et al.</div></div>
-				<div class="sm-sci-card"><h3>Norepinephrine Spike</h3><p>Norepinephrine spikes up to 3× during heat exposure — sharpening focus and mood. The effect extends well beyond the session itself.</p><div class="sm-sci-source">Srámek et al. · Journal of Applied Physiology · 2000</div></div>
-				<div class="sm-sci-card"><h3>All-Cause Mortality</h3><p>Frequent sauna users show a 40% lower risk of all-cause mortality. The benefit scales with frequency — more sessions, stronger the effect.</p><div class="sm-sci-source">Laukkanen et al. · JAMA Internal Medicine · 2018</div></div>
-				<div class="sm-sci-card"><h3>Hypertension in Women</h3><p>Women who used the sauna regularly showed a 46% lower risk of developing high blood pressure — a significant finding for cardiovascular health across sexes.</p><div class="sm-sci-source">Zaccardi et al. · American Journal of Hypertension · 2017</div></div>
-				<div class="sm-sci-card"><h3>Plasma Volume Expansion</h3><p>Repeated heat exposure increases plasma volume, improving oxygen delivery to muscles. This adaptation mirrors the effects of moderate aerobic training.</p><div class="sm-sci-source">Minson et al. · American Journal of Physiology · 2000</div></div>
+				<div class="sm-sci-card"><h3>Cardiovascular Protection</h3><p>Regular sauna use at sufficient core temperatures reduces risk of sudden cardiac death by up to 63% in the largest longitudinal study of its kind.</p><div class="sm-sci-source">Laukkanen et al. &middot; JAMA Internal Medicine &middot; 2018</div></div>
+				<div class="sm-sci-card"><h3>Growth Hormone Surge</h3><p>Heat stress triggers a growth hormone surge of 2&ndash;5&times; baseline. The response is dose-dependent — more pronounced at higher core temperatures.</p><div class="sm-sci-source">Casanueva et al.</div></div>
+				<div class="sm-sci-card"><h3>Heat Shock Proteins</h3><p>HSP70 and HSP90 activate when core temperature crosses &sim;38&deg;C. These molecular chaperones repair damaged proteins and reduce inflammation.</p><div class="sm-sci-source">Hussain et al. &middot; Journal of Applied Physiology &middot; 2019</div></div>
+				<div class="sm-sci-card"><h3>BDNF — Brain Growth Factor</h3><p>Brain-derived neurotrophic factor rises significantly with heat exposure. Linked to improved mood, neuroplasticity, and cognitive protection.</p><div class="sm-sci-source">Rhonda Patrick &middot; FoundMyFitness</div></div>
+				<div class="sm-sci-card"><h3>Cortisol Reduction</h3><p>Post-session cortisol drops significantly. Heat activates the parasympathetic nervous system — the same pathway triggered by meditation.</p><div class="sm-sci-source">Laukkanen et al. &middot; Kukkonen-Harjula et al.</div></div>
+				<div class="sm-sci-card"><h3>Norepinephrine Spike</h3><p>Norepinephrine spikes up to 3&times; during heat exposure — sharpening focus and mood. The effect extends well beyond the session itself.</p><div class="sm-sci-source">Sr&aacute;mek et al. &middot; Journal of Applied Physiology &middot; 2000</div></div>
+				<div class="sm-sci-card"><h3>All-Cause Mortality</h3><p>Frequent sauna users show a 40% lower risk of all-cause mortality. The benefit scales with frequency — more sessions, stronger the effect.</p><div class="sm-sci-source">Laukkanen et al. &middot; JAMA Internal Medicine &middot; 2018</div></div>
+				<div class="sm-sci-card"><h3>Hypertension in Women</h3><p>Women who used the sauna regularly showed a 46% lower risk of developing high blood pressure — a significant finding for cardiovascular health across sexes.</p><div class="sm-sci-source">Zaccardi et al. &middot; American Journal of Hypertension &middot; 2017</div></div>
+				<div class="sm-sci-card"><h3>Plasma Volume Expansion</h3><p>Repeated heat exposure increases plasma volume, improving oxygen delivery to muscles. This adaptation mirrors the effects of moderate aerobic training.</p><div class="sm-sci-source">Minson et al. &middot; American Journal of Physiology &middot; 2000</div></div>
+			</div>
+		</div>
+	</section>
+
+	<!-- PRICING -->
+	<section id="pricing" style="background:var(--dark); border-top:1px solid rgba(232,93,4,0.12);">
+		<div class="sm-section">
+			<div class="sm-eyebrow">Pricing</div>
+			<h2 class="sm-h2">Simple. <span>Everything included.</span></h2>
+			<p class="sm-section-sub">No feature gates. Every tier gets every feature. Early believers pay less — forever.</p>
+			<div class="sm-pricing-grid">
+				<div class="sm-pricing-card featured">
+					<div class="sm-pricing-badge">Launch Offer</div>
+					<div class="sm-pricing-tier">Founding Member</div>
+					<div class="sm-pricing-price">$19.99</div>
+					<div class="sm-pricing-period">per year</div>
+					<div class="sm-pricing-spots">First 1,000 spots</div>
+					<div class="sm-pricing-desc">Every feature. Forever at this price. Locked rate for early believers.</div>
+				</div>
+				<div class="sm-pricing-card">
+					<div class="sm-pricing-tier">Early Adopter</div>
+					<div class="sm-pricing-price">$39.99</div>
+					<div class="sm-pricing-period">per year</div>
+					<div class="sm-pricing-spots">Next 1,000 spots</div>
+					<div class="sm-pricing-desc">Every feature. Locked rate before standard pricing.</div>
+				</div>
+				<div class="sm-pricing-card">
+					<div class="sm-pricing-tier">Pro</div>
+					<div class="sm-pricing-price">$79.99</div>
+					<div class="sm-pricing-period">per year</div>
+					<div class="sm-pricing-spots">Standard</div>
+					<div class="sm-pricing-desc">Every feature. Full price. No feature gates on any tier.</div>
+				</div>
+			</div>
+			<div class="sm-metrics-row">
+				<div class="sm-metric">
+					<div class="sm-metric-val">7<span>day</span></div>
+					<div class="sm-metric-lab">Free trial &middot; no credit card</div>
+				</div>
+				<div class="sm-metric">
+					<div class="sm-metric-val">0<span>ads</span></div>
+					<div class="sm-metric-lab">Subscription only &middot; no data selling</div>
+				</div>
+				<div class="sm-metric">
+					<div class="sm-metric-val">$35</div>
+					<div class="sm-metric-lab">Polar H10 &middot; all you need</div>
+				</div>
+				<div class="sm-metric">
+					<div class="sm-metric-val">5</div>
+					<div class="sm-metric-lab">Zones tracked in real-time</div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -186,47 +247,45 @@ const supportHref = `${import.meta.env.BASE_URL}support/`;
 			<a href="https://apps.apple.com/app/saunamind" style="display:inline-block; margin-top:16px;">
 				<img src="/appstore-badge.svg" alt="Download on the App Store" width="180" height="60" style="transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
 			</a>
-			<div style="margin-top:24px; color:#666; font-size:0.85rem;">
-				<div style="display:flex; justify-content:center; gap:32px; flex-wrap:wrap;">
-					<div><strong style="color:#E8622C;">Founding</strong> — $19.99/yr (38&cent;/week)</div>
-					<div><strong style="color:#F5A623;">Early Adopter</strong> — $39.99/yr</div>
-					<div><strong style="color:#8E9AAF;">Standard</strong> — $79.99/yr</div>
-				</div>
-			</div>
 		</div>
 	</section>
 
 	<!-- TEMP SLIDER -->
-	<section style="background:#080808; border-top:1px solid #161616;">
+	<section style="background:var(--dark); border-top:1px solid rgba(232,93,4,0.12);">
 		<div class="sm-slider-wrap">
 			<div class="sm-eyebrow" style="margin-bottom:24px;">Explore the zones</div>
-			<div class="sm-slider-temp" id="sliderTemp">37.0°C</div>
-			<div class="sm-slider-zone" id="sliderZone" style="color:#8E9AAF;">Warm-Up</div>
-			<div class="sm-slider-desc" id="sliderDesc">Blood flow to skin · mild CV response</div>
+			<div class="sm-slider-temp" id="sliderTemp">37.0&deg;C</div>
+			<div class="sm-slider-zone" id="sliderZone" style="color:var(--zone-blue);">Warm-Up</div>
+			<div class="sm-slider-desc" id="sliderDesc">Blood flow to skin &middot; mild CV response</div>
 			<div class="sm-slider-track">
 				<input type="range" class="sm-slider-input" id="smTempSlider" min="370" max="395" value="370" step="1">
 			</div>
-			<div class="sm-slider-range"><span>37.0°C</span><span>39.5°C</span></div>
+			<div class="sm-slider-range"><span>37.0&deg;C</span><span>39.5&deg;C</span></div>
 		</div>
 	</section>
 </Layout>
 
-
+<style>
+  .sm-thermal-bar {
+    position:absolute; top:0; left:0; right:0; height:3px; z-index:3;
+    background:linear-gradient(90deg, var(--zone-blue), var(--zone-green), var(--zone-amber), var(--zone-red));
+  }
+</style>
 
 <script is:inline>
 var smFacts = [
-  { num:'63%', label:'reduction in sudden cardiac death risk · Laukkanen et al., 2018' },
-  { num:'2–5×', label:'growth hormone surge at peak core temperature · Casanueva et al.' },
-  { num:'40%', label:'lower risk of all-cause mortality with regular sauna · Laukkanen et al.' },
-  { num:'3×', label:'norepinephrine spike during heat exposure · Srámek et al., 2000' },
-  { num:'46%', label:'lower hypertension risk in women using sauna regularly · Zaccardi et al.' },
-  { num:'38°C', label:'core temp threshold for heat shock protein activation · Hussain et al.' },
-  { num:'77%', label:'lower dementia risk in men using sauna 4–7× per week · Laukkanen et al.' },
-  { num:'2,315', label:'participants in the largest sauna longevity study · Finnish cohort' },
-  { num:'↑BDNF', label:'heat exposure boosts brain growth factor linked to mood · Rhonda Patrick' },
-  { num:'20yr', label:'of peer-reviewed Finnish sauna research · University of Eastern Finland' },
-  { num:'33°C', label:'optimal testicular temp for sperm production after heat · Mieusset et al.' },
-  { num:'5°C', label:'below body temp — keep it cool post-sauna to protect fertility · WJMH' }
+  { num:'63%', label:'reduction in sudden cardiac death risk \u00b7 Laukkanen et al., 2018' },
+  { num:'2\u20135\u00d7', label:'growth hormone surge at peak core temperature \u00b7 Casanueva et al.' },
+  { num:'40%', label:'lower risk of all-cause mortality with regular sauna \u00b7 Laukkanen et al.' },
+  { num:'3\u00d7', label:'norepinephrine spike during heat exposure \u00b7 Sr\u00e1mek et al., 2000' },
+  { num:'46%', label:'lower hypertension risk in women using sauna regularly \u00b7 Zaccardi et al.' },
+  { num:'38\u00b0C', label:'core temp threshold for heat shock protein activation \u00b7 Hussain et al.' },
+  { num:'77%', label:'lower dementia risk in men using sauna 4\u20137\u00d7 per week \u00b7 Laukkanen et al.' },
+  { num:'2,315', label:'participants in the largest sauna longevity study \u00b7 Finnish cohort' },
+  { num:'\u2191BDNF', label:'heat exposure boosts brain growth factor linked to mood \u00b7 Rhonda Patrick' },
+  { num:'20yr', label:'of peer-reviewed Finnish sauna research \u00b7 University of Eastern Finland' },
+  { num:'33\u00b0C', label:'optimal testicular temp for sperm production after heat \u00b7 Mieusset et al.' },
+  { num:'5\u00b0C', label:'below body temp \u2014 keep it cool post-sauna to protect fertility \u00b7 WJMH' }
 ];
 var smFactIndex = 0;
 setInterval(function() {
@@ -249,17 +308,17 @@ setInterval(function() {
   if(!slider || !tempEl || !zoneEl || !descEl) return;
 
   var zones = [
-    { min:370, max:375, name:'Warm-Up', color:'#8E9AAF', desc:'Blood flow to skin · mild cardiovascular response' },
-    { min:375, max:380, name:'Heat Adaptation', color:'#4CAF50', desc:'Sweating peaks · plasma volume expansion begins' },
-    { min:380, max:385, name:'HSP Activation', color:'#FF9800', desc:'Heat shock proteins deploy · cellular repair activated' },
-    { min:385, max:390, name:'Deep Hormesis', color:'#E8956A', desc:'Growth hormone surges · maximum cardiovascular benefit' },
-    { min:390, max:396, name:'Caution', color:'#F44336', desc:'Diminishing returns · exit and cool down' }
+    { min:370, max:375, name:'Warm-Up', color:'#3B8BF5', desc:'Blood flow to skin \u00b7 mild cardiovascular response' },
+    { min:375, max:380, name:'Heat Adaptation', color:'#22D47A', desc:'Sweating peaks \u00b7 plasma volume expansion begins' },
+    { min:380, max:385, name:'HSP Activation', color:'#F5A623', desc:'Heat shock proteins deploy \u00b7 cellular repair activated' },
+    { min:385, max:390, name:'Deep Hormesis', color:'#F53B3B', desc:'Growth hormone surges \u00b7 maximum cardiovascular benefit' },
+    { min:390, max:396, name:'Caution', color:'#C41717', desc:'Diminishing returns \u00b7 exit and cool down' }
   ];
 
   function update() {
     var v = parseInt(slider.value);
     var t = (v / 10).toFixed(1);
-    tempEl.innerHTML = t + '°C';
+    tempEl.innerHTML = t + '\u00b0C';
     for(var i = 0; i < zones.length; i++) {
       if(v >= zones[i].min && v < zones[i].max) {
         tempEl.style.color = zones[i].color;

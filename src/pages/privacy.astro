@@ -65,40 +65,44 @@ const supportHref = `${import.meta.env.BASE_URL}support/`;
   }
 
   .doc-container h1 {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900;
     font-size: clamp(40px, 7vw, 64px);
-    letter-spacing: -0.02em;
-    color: #eeeeee;
+    letter-spacing: -0.01em;
+    color: var(--cream);
     margin-bottom: 8px;
   }
 
   .doc-container > p:first-of-type {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: 12px;
-    color: #555555;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--cream-dim);
     margin-bottom: 48px;
   }
 
   .doc-container h2 {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-weight: 700;
     font-size: 22px;
-    color: #E8956A;
+    color: var(--orange);
     margin-top: 44px;
     margin-bottom: 14px;
+    letter-spacing: 0.05em;
   }
 
   .doc-container p,
   .doc-container li {
-    font-size: 16px;
-    color: #555555;
+    font-size: 15px;
+    color: var(--cream-dim);
     line-height: 1.8;
   }
 
   .doc-container p { margin-bottom: 16px; }
   .doc-container ul { margin-left: 24px; margin-bottom: 16px; }
   .doc-container li { margin-bottom: 8px; }
+  .doc-container strong { color: var(--cream); }
 
   @media (max-width: 768px) {
     .doc-container { padding: 60px 20px; }
