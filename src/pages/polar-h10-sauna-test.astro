@@ -1,0 +1,642 @@
+---
+const title = "We Tested the Polar H10 in a Sauna. Here's What Happened. | SaunaMind";
+const description = "Everyone assumes wearables can't handle sauna heat. We put a Polar H10 chest strap through real sauna conditions and measured the actual temperatures. The results surprised us.";
+const canonical = "https://sauna-mind.com/polar-h10-sauna-test/";
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta property="og:type" content="article" />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content="https://sauna-mind.com/og-image.png" />
+<meta property="og:site_name" content="SaunaMind" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content="https://sauna-mind.com/og-image.png" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --black: #0a0a0a;
+    --near-black: #111111;
+    --panel: #161616;
+    --border: #252525;
+    --red: #e63946;
+    --amber: #f4a261;
+    --green: #52b788;
+    --white: #f0ede8;
+    --muted: #6b6b6b;
+    --mono: 'Space Mono', monospace;
+    --display: 'Bebas Neue', sans-serif;
+    --body: 'DM Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--body);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* Noise texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* Header */
+  .site-header {
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: var(--display);
+    font-size: 22px;
+    letter-spacing: 3px;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .logo span { color: var(--red); }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 80px 40px 60px;
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .category-pill {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    border: 1px solid var(--red);
+    padding: 4px 12px;
+    margin-bottom: 32px;
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(52px, 8vw, 96px);
+    line-height: 0.92;
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--red);
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    color: rgba(240,237,232,0.65);
+    max-width: 580px;
+    margin-bottom: 48px;
+    line-height: 1.6;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+  }
+
+  .meta-row strong { color: var(--white); }
+
+  /* Verdict banner */
+  .verdict-banner {
+    margin: 0 40px 60px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--green);
+    padding: 28px 36px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .verdict-icon {
+    font-size: 36px;
+    flex-shrink: 0;
+  }
+
+  .verdict-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 6px;
+  }
+
+  .verdict-text {
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* Content */
+  .content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+
+  h2 {
+    font-family: var(--display);
+    font-size: 36px;
+    letter-spacing: 2px;
+    margin: 56px 0 20px;
+    color: var(--white);
+  }
+
+  p {
+    color: rgba(240,237,232,0.75);
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+
+  strong { color: var(--white); font-weight: 500; }
+
+  /* Data cards */
+  .data-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin: 40px 0;
+    background: var(--border);
+  }
+
+  .data-card {
+    background: var(--panel);
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .data-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+
+  .data-card.safe::before { background: var(--green); }
+  .data-card.warn::before { background: var(--amber); }
+  .data-card.info::before { background: #4cc9f0; }
+
+  .data-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .data-value {
+    font-family: var(--display);
+    font-size: 48px;
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .data-card.safe .data-value { color: var(--green); }
+  .data-card.warn .data-value { color: var(--amber); }
+  .data-card.info .data-value { color: #4cc9f0; }
+
+  .data-note {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  /* Temp timeline */
+  .temp-chart {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 32px;
+    margin: 40px 0;
+  }
+
+  .chart-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+
+  .chart-rows { display: flex; flex-direction: column; gap: 16px; }
+
+  .chart-row { display: flex; align-items: center; gap: 16px; }
+
+  .chart-row-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    width: 90px;
+    flex-shrink: 0;
+    text-align: right;
+  }
+
+  .chart-bar-wrap {
+    flex: 1;
+    height: 28px;
+    background: rgba(255,255,255,0.04);
+    position: relative;
+    border: 1px solid var(--border);
+  }
+
+  .chart-bar {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 700;
+    transition: width 1s ease;
+  }
+
+  .bar-air { background: rgba(230, 57, 70, 0.35); color: var(--red); width: 90%; }
+  .bar-strap { background: rgba(82, 183, 136, 0.35); color: var(--green); width: 44%; }
+  .bar-pod { background: rgba(82, 183, 136, 0.3); color: var(--green); width: 40%; }
+  .bar-skin { background: rgba(76, 201, 240, 0.3); color: #4cc9f0; width: 37%; }
+
+  .danger-line {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: var(--red);
+    opacity: 0.4;
+    left: 72%;
+  }
+
+  .danger-label {
+    position: absolute;
+    top: -18px;
+    left: 72%;
+    transform: translateX(-50%);
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--red);
+    white-space: nowrap;
+  }
+
+  /* Callout */
+  .callout {
+    background: rgba(230, 57, 70, 0.08);
+    border: 1px solid rgba(230, 57, 70, 0.2);
+    border-left: 3px solid var(--red);
+    padding: 24px 28px;
+    margin: 32px 0;
+  }
+
+  .callout-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+
+  .callout p { margin: 0; color: rgba(240,237,232,0.8); }
+
+  /* Comparison table */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    font-size: 14px;
+  }
+
+  .compare-table th {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .compare-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(37,37,37,0.5);
+    color: rgba(240,237,232,0.7);
+    vertical-align: top;
+  }
+
+  .compare-table td:first-child { color: var(--white); font-weight: 500; }
+
+  .tick { color: var(--green); font-weight: 700; }
+  .cross { color: var(--red); font-weight: 700; }
+  .partial { color: var(--amber); }
+
+  /* CTA */
+  .cta-block {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 48px 40px;
+    text-align: center;
+    margin-top: 64px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-block::before {
+    content: 'KNOW YOUR ZONES';
+    position: absolute;
+    font-family: var(--display);
+    font-size: 120px;
+    color: rgba(255,255,255,0.02);
+    white-space: nowrap;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    letter-spacing: 8px;
+    pointer-events: none;
+  }
+
+  .cta-block h2 { margin: 0 0 12px; font-size: 42px; }
+
+  .cta-sub {
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 32px;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 40px;
+    transition: background 0.2s;
+  }
+
+  .cta-btn:hover { background: #c1121f; }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .site-header { padding: 20px 24px; }
+    .hero { padding: 48px 24px 40px; }
+    .verdict-banner { margin: 0 24px 48px; padding: 20px 24px; flex-direction: column; }
+    .content { padding: 0 24px 60px; }
+    .data-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 56px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="https://sauna-mind.com" class="logo">SAUNA<span>MIND</span></a>
+  <span class="tag">Science-Based Sauna Tracking</span>
+</header>
+
+<article>
+
+  <div class="hero">
+    <div class="category-pill">⚗ Field Test</div>
+    <h1>WE TESTED THE POLAR H10 IN A <em>SAUNA.</em> HERE'S WHAT HAPPENED.</h1>
+    <p class="hero-sub">Everyone assumes wearables can't handle sauna heat. We put a Polar H10 chest strap through real sauna conditions and measured the actual temperatures. The results surprised us.</p>
+    <div class="meta-row">
+      <span>By <strong>SaunaMind</strong></span>
+      <span>March 2026</span>
+      <span>⏱ 5 min read</span>
+    </div>
+  </div>
+
+  <div class="verdict-banner">
+    <div class="verdict-icon">✅</div>
+    <div>
+      <div class="verdict-label">Verdict</div>
+      <div class="verdict-text">The Polar H10 works in a sauna. The device never exceeded 44°C — well within its operating range. Here's the data.</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <h2>THE ASSUMPTION</h2>
+    <p>Ask any sauna app why they don't track heart rate in real time and you'll get the same answer: <strong>"wearables can't handle the heat."</strong> It's repeated so often it's become received wisdom.</p>
+    <p>We decided to actually test it rather than assume.</p>
+    <p>The Polar H10 is the gold-standard chest strap HR monitor used in clinical and sports research. It's also what SaunaMind uses to estimate core body temperature in real time using the Buller et al. USARIEM algorithm. So if the H10 has a heat problem, we have a product problem. We needed to know.</p>
+
+    <h2>THE TEST</h2>
+    <p>We ran multiple sauna sessions across different temperature settings — a typical Finnish dry sauna ranging from 70°C to 90°C ambient air temperature. The H10 was worn normally on the chest strap throughout each session.</p>
+    <p>We measured temperature at four points:</p>
+    <ul style="color: rgba(240,237,232,0.75); padding-left: 20px; margin-bottom: 20px; font-size: 16px;">
+      <li style="margin-bottom: 8px;">Ambient air temperature inside the sauna</li>
+      <li style="margin-bottom: 8px;">The front face of the H10 pod (sensor side)</li>
+      <li style="margin-bottom: 8px;">The rear of the H10 pod (where the battery sits)</li>
+      <li style="margin-bottom: 8px;">Skin surface at the chest</li>
+    </ul>
+
+    <h2>THE DATA</h2>
+
+    <div class="data-grid">
+      <div class="data-card warn">
+        <div class="data-label">Sauna Air Temp</div>
+        <div class="data-value">85°C</div>
+        <div class="data-note">Typical session<br>ambient temp</div>
+      </div>
+      <div class="data-card safe">
+        <div class="data-label">H10 Pod Max Temp</div>
+        <div class="data-value">44°C</div>
+        <div class="data-note">Battery side.<br>Never exceeded this.</div>
+      </div>
+      <div class="data-card info">
+        <div class="data-label">HR Accuracy</div>
+        <div class="data-value">✓</div>
+        <div class="data-note">Continuous signal.<br>No dropouts detected.</div>
+      </div>
+    </div>
+
+    <div class="temp-chart">
+      <div class="chart-title">// Temperature by location — peak readings</div>
+      <div style="position: relative; padding-top: 24px;">
+        <div class="chart-rows">
+          <div class="chart-row">
+            <div class="chart-row-label">AIR</div>
+            <div class="chart-bar-wrap">
+              <div class="danger-line"></div>
+              <div class="danger-label">DEVICE LIMIT ~60°C</div>
+              <div class="chart-bar bar-air">85°C</div>
+            </div>
+          </div>
+          <div class="chart-row">
+            <div class="chart-row-label">STRAP FACE</div>
+            <div class="chart-bar-wrap">
+              <div class="danger-line"></div>
+              <div class="chart-bar bar-strap">44°C</div>
+            </div>
+          </div>
+          <div class="chart-row">
+            <div class="chart-row-label">BATTERY REAR</div>
+            <div class="chart-bar-wrap">
+              <div class="danger-line"></div>
+              <div class="chart-bar bar-pod">44°C</div>
+            </div>
+          </div>
+          <div class="chart-row">
+            <div class="chart-row-label">SKIN</div>
+            <div class="chart-bar-wrap">
+              <div class="danger-line"></div>
+              <div class="chart-bar bar-skin">38–40°C</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2>WHY THE BODY IS THE SHIELD</h2>
+    <p>The reason the H10 survives is physics, not luck. The chest strap sits flush against skin — and skin is an excellent thermal buffer. While the sauna air hits 85°C, your body is working hard to maintain ~37–38°C internally and the skin surface sits around 38–40°C in a sauna.</p>
+    <p><strong>The device is essentially insulated by your body.</strong> The front face of the pod faces outward into the hot air — but the thermal mass of your chest and the constant blood perfusion beneath the skin means the strap never gets close to dangerous temperatures.</p>
+
+    <div class="callout">
+      <div class="callout-label">⚠ Important caveat</div>
+      <p>These results apply to the H10 worn correctly against the chest. Leaving the device unattended on a bench in the sauna (not against skin) would expose it to full ambient temperature — don't do that. Also, always verify with your specific device model before extended use.</p>
+    </div>
+
+    <h2>WHAT THIS MEANS FOR SAUNA TRACKING</h2>
+    <p>Most sauna apps — including well-funded competitors — require you to <strong>manually enter your heart rate after a session</strong>, or skip it entirely. They can't use the Apple Watch because Apple doesn't rate it for sauna temperatures.</p>
+    <p>But the Polar H10 is a different story. And with real-time HR data flowing into SaunaMind, we can do something no time-based tracker can:</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Time-based apps</th>
+          <th>SaunaMind + H10</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>HR tracking in sauna</td>
+          <td><span class="cross">✗ Manual entry</span></td>
+          <td><span class="tick">✓ Real-time</span></td>
+        </tr>
+        <tr>
+          <td>Core body temp estimate</td>
+          <td><span class="cross">✗ Not available</span></td>
+          <td><span class="tick">✓ Kalman-filtered algorithm</span></td>
+        </tr>
+        <tr>
+          <td>HSP70 zone tracking</td>
+          <td><span class="cross">✗ Not available</span></td>
+          <td><span class="tick">✓ 5 physiological zones</span></td>
+        </tr>
+        <tr>
+          <td>Personalised to your physiology</td>
+          <td><span class="cross">✗ Same timer for everyone</span></td>
+          <td><span class="tick">✓ Uses your resting HR</span></td>
+        </tr>
+        <tr>
+          <td>Cold plunge tracking</td>
+          <td><span class="partial">⚡ Apple Watch only</span></td>
+          <td><span class="tick">✓ Apple Watch + H10</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>THE BOTTOM LINE</h2>
+    <p>The Polar H10 handles sauna conditions without issue when worn correctly. The gap between sauna air temperature and device temperature is enormous — your body does the work.</p>
+    <p>This means <strong>real-time physiological sauna tracking is possible today.</strong> Not theoretical, not coming soon — available right now with SaunaMind.</p>
+    <p>You don't need to guess when you've "done enough." You can see your estimated core body temperature rising in real time and exit when you've hit your target zone. That's the difference between time and physiology.</p>
+
+    <div class="cta-block">
+      <h2>KNOW YOUR ZONES</h2>
+      <p class="cta-sub">Real-time core body temperature tracking. Science-backed. Polar H10 compatible.</p>
+      <a href="https://sauna-mind.com" class="cta-btn">Download SaunaMind →</a>
+    </div>
+
+  </div>
+</article>
+
+<footer>
+  <span>© 2026 SaunaMind</span>
+  <span>sauna-mind.com</span>
+  <span>Science-Based Sauna Tracking</span>
+</footer>
+<div style="border-top: 1px solid #1a1a1a; padding: 20px 40px; font-family: 'Space Mono', monospace; font-size: 10px; color: #3a3a3a; line-height: 1.6;">
+  Disclaimer: This article reflects independent field testing conducted by SaunaMind and does not constitute an endorsement by Polar Electro. SaunaMind is not affiliated with Polar Electro Oy. Polar and H10 are trademarks of Polar Electro Oy. Always verify device compatibility with your manufacturer before use in extreme environments. This content is for informational purposes only and does not constitute medical advice.
+</div>
+
+</body>
+</html>
