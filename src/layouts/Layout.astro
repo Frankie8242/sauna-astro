@@ -229,6 +229,75 @@ const canonical = `https://sauna-mind.com${Astro.url.pathname}`;
         font-weight:500;
       }
 
+      /* SLIDE TITLE (pitch deck style) */
+      .sm-slide-label {
+        font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:600;
+        letter-spacing:0.3em; text-transform:uppercase;
+        color:var(--orange); margin-bottom:16px;
+      }
+      .sm-slide-title {
+        font-family:'Barlow Condensed',sans-serif; font-weight:800;
+        font-size:clamp(42px,5.5vw,70px); line-height:0.92; letter-spacing:-0.01em;
+        color:var(--cream); margin-bottom:36px;
+      }
+      .sm-slide-title em { color:var(--orange); font-style:normal; }
+
+      /* TWO-COL LAYOUT */
+      .sm-two-col { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+      .sm-three-col { display:grid; grid-template-columns:1fr 1fr 1fr; gap:28px; }
+
+      /* PHASE CARDS */
+      .sm-phase-card {
+        background:var(--dark3); border:1px solid rgba(240,237,230,0.06);
+        padding:24px 20px; text-align:center;
+      }
+      .sm-phase-num {
+        font-family:'Barlow Condensed',sans-serif; font-weight:900;
+        font-size:48px; line-height:1; margin-bottom:8px;
+      }
+      .sm-phase-name {
+        font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:15px;
+        letter-spacing:0.1em; text-transform:uppercase;
+        color:var(--cream); margin-bottom:8px;
+      }
+      .sm-phase-desc { font-size:13px; color:var(--cream-dim); line-height:1.5; font-weight:500; }
+      .sm-phase-footer {
+        margin-top:20px; font-size:14px; color:var(--cream-dim); text-align:center;
+        letter-spacing:0.05em; font-weight:500;
+      }
+      .sm-phase-footer strong { color:var(--cream); font-weight:600; }
+
+      /* POINT LIST */
+      .sm-point-list { list-style:none; }
+      .sm-point-list li {
+        padding:10px 0; border-bottom:1px solid rgba(240,237,230,0.06);
+        font-size:15px; color:var(--cream-dim); line-height:1.5; font-weight:500;
+        display:flex; gap:14px; align-items:flex-start;
+      }
+      .sm-point-list li:last-child { border-bottom:none; }
+      .sm-point-list li::before {
+        content:'\2014'; color:var(--orange); flex-shrink:0; font-weight:700; margin-top:1px;
+      }
+      .sm-point-list li strong { color:var(--cream); font-weight:600; }
+
+      /* SESSION MOCK CARD */
+      .sm-mock-card {
+        background:var(--dark3); border:1px solid rgba(240,237,230,0.08);
+        padding:20px 22px;
+      }
+      .sm-mock-label {
+        font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:13px;
+        letter-spacing:0.15em; text-transform:uppercase; margin-bottom:10px;
+      }
+      .sm-mock-value {
+        font-family:'Barlow Condensed',sans-serif; font-weight:900;
+        font-size:52px; line-height:1;
+      }
+      .sm-mock-sub { font-size:12px; color:var(--cream-dim); margin-top:4px; }
+      .sm-mock-bar {
+        margin-top:12px; height:4px; border-radius:2px;
+      }
+
       /* THERMAL STRIP */
       .sm-thermal-strip {
         height:4px; width:100%;
@@ -494,6 +563,8 @@ const canonical = `https://sauna-mind.com${Astro.url.pathname}`;
         .sm-science-grid { grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); }
         .sm-pricing-grid { grid-template-columns:1fr; max-width:400px; margin-left:auto; margin-right:auto; }
         .sm-metrics-row { flex-wrap:wrap; }
+        .sm-two-col { grid-template-columns:1fr; gap:32px; }
+        .sm-three-col { grid-template-columns:1fr; }
         .sm-metric { min-width:140px; }
       }
       @media(max-width:768px) {

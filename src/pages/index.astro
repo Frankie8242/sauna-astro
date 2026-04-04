@@ -74,6 +74,68 @@ const supportHref = `${import.meta.env.BASE_URL}support/`;
 		<div class="sm-stat"><div class="sm-stat-num">5&times;</div><div class="sm-stat-label">GH Surge at Peak Zone</div></div>
 	</div>
 
+	<!-- THE SOLUTION -->
+	<section style="background:var(--dark); border-top:1px solid rgba(232,93,4,0.12);">
+		<div class="sm-section">
+			<div class="sm-slide-label">The Solution</div>
+			<div class="sm-slide-title">Real-time core body<br>temperature. <em>From your HR.</em></div>
+			<div class="sm-thermal-strip" style="margin-bottom:32px;"></div>
+			<div class="sm-three-col">
+				<div class="sm-phase-card">
+					<div class="sm-phase-num" style="color:var(--zone-amber);">eCBT</div>
+					<div class="sm-phase-name">Live Temperature</div>
+					<div class="sm-phase-desc">Estimated core body temp calculated in real-time using peer-reviewed Jay &amp; Kenny 2010 formula</div>
+				</div>
+				<div class="sm-phase-card">
+					<div class="sm-phase-num" style="color:var(--orange);">5</div>
+					<div class="sm-phase-name">Thermal Zones</div>
+					<div class="sm-phase-desc">Science-backed benefit zones from Warm Up through HSP Activation to Caution ceiling</div>
+				</div>
+				<div class="sm-phase-card">
+					<div class="sm-phase-num" style="color:var(--zone-blue);">3</div>
+					<div class="sm-phase-name">Cold Phases</div>
+					<div class="sm-phase-desc">Entry Shock &rarr; Adaptation &rarr; Recovery. The only app that models the full cold plunge response</div>
+				</div>
+			</div>
+			<div class="sm-phase-footer">
+				Works with <strong>any Bluetooth HR monitor</strong> &middot; Sauna &middot; Cold Plunge &middot; Contrast &middot; Training &middot; AI Coaching
+			</div>
+		</div>
+	</section>
+
+	<!-- PRODUCT -->
+	<section style="background:var(--dark); border-top:1px solid rgba(232,93,4,0.12);">
+		<div class="sm-section">
+			<div class="sm-slide-label">Product</div>
+			<div class="sm-slide-title">One tap. <em>Full physiology.</em></div>
+			<div class="sm-two-col">
+				<div>
+					<ul class="sm-point-list">
+						<li><strong>Live eCBT display</strong> with zone color gradient &mdash; background shifts as your body heats up</li>
+						<li><strong>Real-time HR curve</strong> plotting estimated core temperature over session time</li>
+						<li><strong>Multi-phase sessions</strong> &mdash; Training + Sauna + Cold in a single continuous flow</li>
+						<li><strong>AI Recovery Coach</strong> &mdash; GPT-4o with full session context and thermal science knowledge</li>
+						<li><strong>History tab</strong> with zone transitions, per-phase breakdown, and filter chips</li>
+						<li><strong>PDF export</strong> + social-ready session card for sharing</li>
+					</ul>
+				</div>
+				<div style="display:flex;flex-direction:column;gap:12px;">
+					<div class="sm-mock-card">
+						<div class="sm-mock-label" style="color:var(--orange);">Active Session</div>
+						<div class="sm-mock-value" style="color:var(--zone-amber);">38.3&deg;C</div>
+						<div class="sm-mock-sub">HSP Activation Zone &middot; 23:14 elapsed</div>
+						<div class="sm-mock-bar" style="background:linear-gradient(90deg,var(--zone-blue) 0%,var(--zone-green) 40%,var(--zone-amber) 75%,transparent 75%);"></div>
+					</div>
+					<div class="sm-mock-card">
+						<div class="sm-mock-label" style="color:var(--zone-blue);">Cold Plunge &middot; Entry Shock</div>
+						<div class="sm-mock-value" style="color:var(--zone-blue);">+34 BPM</div>
+						<div class="sm-mock-sub">Sympathetic activation &middot; Vagal recovery in progress</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- ZONES -->
 	<section id="zones" style="background:var(--dark);">
 		<div class="sm-section">
