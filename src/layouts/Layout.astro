@@ -4,7 +4,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "SaunaMind tracks your sauna sessions using estimated core body temperature — guided by peer-reviewed research. Know your zones. Not just your time." } = Astro.props;
+const { title, description = "SaunaMind tracks your heat adaptation over time — guided by peer-reviewed research. Know your zones. Not just your time." } = Astro.props;
 const homeHref = import.meta.env.BASE_URL;
 const privacyHref = `${import.meta.env.BASE_URL}privacy/`;
 const supportHref = `${import.meta.env.BASE_URL}support/`;
@@ -45,7 +45,7 @@ const canonical = `https://sauna-mind.com${Astro.url.pathname}`;
       "@context": "https://schema.org",
       "@type": "MobileApplication",
       "name": "SaunaMind",
-      "description": "The world's first recovery intelligence platform for heat exposure. Real-time core body temperature across five physiological zones.",
+      "description": "The world's first recovery intelligence platform for heat exposure. Tracks your heat adaptation across five physiological zones.",
       "operatingSystem": "iOS",
       "applicationCategory": "HealthApplication",
       "url": "https://sauna-mind.com",
