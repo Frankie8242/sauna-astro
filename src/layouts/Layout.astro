@@ -212,7 +212,7 @@ const canonical = `https://sauna-mind.com${Astro.url.pathname}`;
       }
 
       /* SECTION */
-      .sm-section { padding:60px 48px; max-width:1100px; margin:0 auto; }
+      .sm-section { padding:80px 48px; max-width:1100px; margin:0 auto; }
       .sm-eyebrow {
         font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:600;
         letter-spacing:0.3em; text-transform:uppercase;
@@ -474,8 +474,8 @@ const canonical = `https://sauna-mind.com${Astro.url.pathname}`;
 
       /* DOWNLOAD / WAITLIST */
       .sm-waitlist {
-        text-align:center; padding:80px 24px; position:relative; overflow:hidden;
-        background:var(--dark);
+        text-align:center; padding:100px 24px; position:relative; overflow:hidden;
+        background:var(--dark); border-top:1px solid rgba(232,93,4,0.12);
       }
       .sm-waitlist-glow {
         position:absolute; width:600px; height:400px;
@@ -528,7 +528,7 @@ const canonical = `https://sauna-mind.com${Astro.url.pathname}`;
 
       /* FOOTER */
       .sm-footer {
-        border-top:1px solid rgba(232,93,4,0.12); padding:32px 48px;
+        border-top:1px solid rgba(232,93,4,0.12); padding:40px 48px;
         display:flex; align-items:center; justify-content:space-between;
         flex-wrap:wrap; gap:16px; background:var(--dark);
       }
@@ -558,7 +558,7 @@ const canonical = `https://sauna-mind.com${Astro.url.pathname}`;
       @media(max-width:1024px) {
         .sm-nav { padding:14px 24px; }
         .sm-nav-links { gap:20px; }
-        .sm-section { padding:48px 32px; }
+        .sm-section { padding:60px 32px; }
         .sm-h2 { font-size:clamp(40px,6vw,72px); }
         .sm-science-grid { grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); }
         .sm-pricing-grid { grid-template-columns:1fr; max-width:400px; margin-left:auto; margin-right:auto; }
@@ -580,7 +580,7 @@ const canonical = `https://sauna-mind.com${Astro.url.pathname}`;
         .sm-email-input { width:100%; }
         .sm-submit-btn { width:100%; }
         .sm-trust { flex-direction:column; align-items:center; gap:10px; }
-        .sm-section { padding:40px 20px; }
+        .sm-section { padding:48px 20px; }
         .sm-stats { padding:24px 16px; }
         .sm-stat { padding:16px 20px; border-left:none !important; }
         .sm-stat + .sm-stat { border-top:1px solid rgba(240,237,230,0.08); }
