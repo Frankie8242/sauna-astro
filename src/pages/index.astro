@@ -298,17 +298,44 @@ const guideHref = `${import.meta.env.BASE_URL}guide/`;
 		</div>
 	</section>
 
-	<!-- TEMP SLIDER -->
+	<!-- ZONE EXPLORER -->
 	<section style="background:var(--dark); border-top:1px solid rgba(232,93,4,0.12);">
-		<div class="sm-slider-wrap">
-			<div class="sm-eyebrow" style="margin-bottom:24px;">Explore the zones</div>
-			<div class="sm-slider-temp" id="sliderTemp">37.0&deg;C</div>
-			<div class="sm-slider-zone" id="sliderZone" style="color:var(--zone-blue);">Warm-Up</div>
-			<div class="sm-slider-desc" id="sliderDesc">Blood flow to skin &middot; mild CV response</div>
-			<div class="sm-slider-track">
-				<input type="range" class="sm-slider-input" id="smTempSlider" min="370" max="395" value="370" step="1">
+		<div class="sm-section" style="max-width:800px;">
+			<div class="sm-eyebrow" style="text-align:center;">Explore the zones</div>
+			<div class="zone-explorer">
+				<div class="zone-display">
+					<div class="zone-temp" id="zoneTemp">37.0&deg;C</div>
+					<div class="zone-name" id="zoneName">Warm-Up</div>
+					<div class="zone-desc" id="zoneDesc">Blood flow to skin &middot; mild CV response</div>
+				</div>
+				<div class="zone-bars">
+					<div class="zone-bar active" data-zone="0" style="--zone-color:var(--zone-blue);">
+						<div class="zone-bar-fill"></div>
+						<div class="zone-bar-label">Warm-Up</div>
+						<div class="zone-bar-range">37.0 &ndash; 37.5&deg;C</div>
+					</div>
+					<div class="zone-bar" data-zone="1" style="--zone-color:var(--zone-green);">
+						<div class="zone-bar-fill"></div>
+						<div class="zone-bar-label">Heat Adaptation</div>
+						<div class="zone-bar-range">37.5 &ndash; 38.0&deg;C</div>
+					</div>
+					<div class="zone-bar" data-zone="2" style="--zone-color:var(--zone-amber);">
+						<div class="zone-bar-fill"></div>
+						<div class="zone-bar-label">HSP Activation</div>
+						<div class="zone-bar-range">38.0 &ndash; 38.5&deg;C</div>
+					</div>
+					<div class="zone-bar" data-zone="3" style="--zone-color:var(--zone-red);">
+						<div class="zone-bar-fill"></div>
+						<div class="zone-bar-label">Deep Hormesis</div>
+						<div class="zone-bar-range">38.5 &ndash; 39.0&deg;C</div>
+					</div>
+					<div class="zone-bar" data-zone="4" style="--zone-color:var(--zone-danger);">
+						<div class="zone-bar-fill"></div>
+						<div class="zone-bar-label">Caution</div>
+						<div class="zone-bar-range">39.0&deg;C+</div>
+					</div>
+				</div>
 			</div>
-			<div class="sm-slider-range"><span>37.0&deg;C</span><span>39.5&deg;C</span></div>
 		</div>
 	</section>
 </Layout>
@@ -317,6 +344,76 @@ const guideHref = `${import.meta.env.BASE_URL}guide/`;
   .sm-thermal-bar {
     position:absolute; top:0; left:0; right:0; height:3px; z-index:3;
     background:linear-gradient(90deg, var(--zone-blue), var(--zone-green), var(--zone-amber), var(--zone-red));
+  }
+
+  .zone-explorer {
+    margin-top:32px;
+  }
+  .zone-display {
+    text-align:center; margin-bottom:40px;
+  }
+  .zone-temp {
+    font-family:'Barlow Condensed',sans-serif; font-weight:900;
+    font-size:64px; line-height:1; margin-bottom:8px;
+    transition:color 0.5s ease;
+  }
+  .zone-name {
+    font-family:'Barlow Condensed',sans-serif; font-weight:700;
+    font-size:22px; letter-spacing:0.1em; text-transform:uppercase;
+    margin-bottom:8px; transition:color 0.5s ease;
+  }
+  .zone-desc {
+    font-size:15px; color:var(--cream-dim); font-weight:500;
+    transition:opacity 0.3s;
+  }
+  .zone-bars {
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .zone-bar {
+    display:flex; align-items:center; gap:16px;
+    padding:14px 20px;
+    background:var(--dark3);
+    border:1px solid rgba(240,237,230,0.04);
+    cursor:pointer;
+    transition:all 0.3s ease;
+    position:relative; overflow:hidden;
+  }
+  .zone-bar-fill {
+    position:absolute; left:0; top:0; bottom:0; width:0;
+    background:var(--zone-color);
+    opacity:0.12;
+    transition:width 0.6s cubic-bezier(.4,0,.2,1);
+  }
+  .zone-bar.active .zone-bar-fill {
+    width:100%;
+  }
+  .zone-bar.active {
+    border-color:var(--zone-color);
+    box-shadow:0 0 20px color-mix(in srgb, var(--zone-color) 20%, transparent);
+  }
+  .zone-bar:hover {
+    border-color:var(--zone-color);
+  }
+  .zone-bar-label {
+    font-family:'Barlow Condensed',sans-serif; font-weight:700;
+    font-size:15px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--cream); flex:1;
+    position:relative; z-index:1;
+  }
+  .zone-bar.active .zone-bar-label {
+    color:var(--zone-color);
+  }
+  .zone-bar-range {
+    font-family:'Barlow Condensed',sans-serif; font-size:13px;
+    color:var(--cream-dim); letter-spacing:0.05em;
+    position:relative; z-index:1;
+  }
+  @media(max-width:768px) {
+    .zone-temp { font-size:48px; }
+    .zone-name { font-size:18px; }
+    .zone-bar { padding:12px 16px; }
+    .zone-bar-label { font-size:13px; }
+    .zone-bar-range { font-size:11px; }
   }
 </style>
 
@@ -349,64 +446,51 @@ setInterval(function() {
 }, 8000);
 
 (function() {
-  var slider = document.getElementById('smTempSlider');
-  var tempEl = document.getElementById('sliderTemp');
-  var zoneEl = document.getElementById('sliderZone');
-  var descEl = document.getElementById('sliderDesc');
-  if(!slider || !tempEl || !zoneEl || !descEl) return;
-
   var zones = [
-    { min:370, max:375, name:'Warm-Up', color:'#3B8BF5', desc:'Blood flow to skin \u00b7 mild cardiovascular response' },
-    { min:375, max:380, name:'Heat Adaptation', color:'#22D47A', desc:'Sweating peaks \u00b7 plasma volume expansion begins' },
-    { min:380, max:385, name:'HSP Activation', color:'#F5A623', desc:'Heat shock proteins deploy \u00b7 cellular repair activated' },
-    { min:385, max:390, name:'Deep Hormesis', color:'#F53B3B', desc:'Growth hormone surges \u00b7 maximum cardiovascular benefit' },
-    { min:390, max:396, name:'Caution', color:'#C41717', desc:'Diminishing returns \u00b7 exit and cool down' }
+    { temp:'37.0\u00b0C', name:'Warm-Up', color:'#3B8BF5', desc:'Blood flow to skin \u00b7 mild cardiovascular response' },
+    { temp:'37.5\u00b0C', name:'Heat Adaptation', color:'#22D47A', desc:'Sweating peaks \u00b7 plasma volume expansion begins' },
+    { temp:'38.0\u00b0C', name:'HSP Activation', color:'#F5A623', desc:'Heat shock proteins deploy \u00b7 cellular repair activated' },
+    { temp:'38.5\u00b0C', name:'Deep Hormesis', color:'#F53B3B', desc:'Growth hormone surges \u00b7 maximum cardiovascular benefit' },
+    { temp:'39.0\u00b0C', name:'Caution', color:'#C41717', desc:'Diminishing returns \u00b7 exit and cool down' }
   ];
 
-  function update() {
-    var v = parseInt(slider.value);
-    var t = (v / 10).toFixed(1);
-    tempEl.innerHTML = t + '\u00b0C';
-    for(var i = 0; i < zones.length; i++) {
-      if(v >= zones[i].min && v < zones[i].max) {
-        tempEl.style.color = zones[i].color;
-        zoneEl.innerHTML = zones[i].name;
-        zoneEl.style.color = zones[i].color;
-        descEl.innerHTML = zones[i].desc;
-        break;
-      }
-    }
-  }
+  var tempEl = document.getElementById('zoneTemp');
+  var nameEl = document.getElementById('zoneName');
+  var descEl = document.getElementById('zoneDesc');
+  var bars = document.querySelectorAll('.zone-bar');
+  if(!tempEl || !bars.length) return;
 
-  slider.addEventListener('input', function() {
-    stopped = true;
-  });
-  update();
-
+  var current = 0;
   var stopped = false;
-  var dir = 1;
 
-  function step() {
-    if(stopped) return;
-    var v = parseInt(slider.value) + dir;
-    if(v > 395) { dir = -1; v = 394; }
-    if(v < 370) { dir = 1; v = 371; }
-    slider.value = v;
-    update();
-    if([375, 380, 385, 390, 395, 370].indexOf(v) !== -1) {
-      setTimeout(function() { if(!stopped) requestAnimationFrame(stepLoop); }, 1500);
-    } else {
-      requestAnimationFrame(stepLoop);
-    }
+  function setZone(i) {
+    current = i;
+    var z = zones[i];
+    tempEl.innerHTML = z.temp;
+    tempEl.style.color = z.color;
+    nameEl.innerHTML = z.name;
+    nameEl.style.color = z.color;
+    descEl.innerHTML = z.desc;
+    bars.forEach(function(b, idx) {
+      b.classList.toggle('active', idx === i);
+    });
   }
 
-  var lastTick = 0;
-  function stepLoop(ts) {
-    if(stopped) return;
-    if(ts - lastTick >= 60) { lastTick = ts; step(); }
-    else { requestAnimationFrame(stepLoop); }
-  }
+  bars.forEach(function(bar, idx) {
+    bar.addEventListener('click', function() {
+      stopped = true;
+      setZone(idx);
+    });
+  });
 
-  setTimeout(function() { if(!stopped) requestAnimationFrame(stepLoop); }, 2000);
+  setZone(0);
+
+  function autoStep() {
+    if(stopped) return;
+    current = (current + 1) % zones.length;
+    setZone(current);
+    setTimeout(autoStep, 2500);
+  }
+  setTimeout(autoStep, 3000);
 })();
 </script>

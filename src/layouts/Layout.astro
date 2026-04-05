@@ -492,40 +492,6 @@ const canonical = `https://sauna-mind.com${Astro.url.pathname}`;
       .sm-waitlist-p { font-size:17px; color:var(--cream-dim); line-height:1.65; margin-bottom:32px; font-weight:500; }
       .sm-waitlist-form { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
 
-      /* TEMP SLIDER */
-      .sm-slider-wrap { padding:48px; max-width:700px; margin:0 auto; text-align:center; }
-      .sm-slider-temp {
-        font-family:'Barlow Condensed',sans-serif; font-weight:900;
-        font-size:72px; line-height:1; margin-bottom:6px; transition:color 0.3s;
-      }
-      .sm-slider-zone {
-        font-family:'Barlow Condensed',sans-serif; font-weight:700;
-        font-size:22px; margin-bottom:6px; transition:color 0.3s;
-      }
-      .sm-slider-desc { font-size:14px; color:var(--cream-dim); margin-bottom:36px; min-height:24px; transition:color 0.3s; }
-      .sm-slider-track {
-        position:relative; width:100%; height:4px; margin-bottom:16px;
-        background:linear-gradient(90deg, var(--zone-blue) 0%, var(--zone-green) 25%, var(--zone-amber) 50%, var(--zone-red) 75%, var(--zone-danger) 100%);
-      }
-      .sm-slider-input {
-        -webkit-appearance:none; appearance:none; width:100%; height:12px;
-        background:transparent; position:relative; cursor:pointer; margin:-4px 0 0 0; outline:none;
-      }
-      .sm-slider-input::-webkit-slider-thumb {
-        -webkit-appearance:none; appearance:none; width:20px; height:20px;
-        background:var(--cream); border:3px solid var(--dark);
-        box-shadow:0 0 12px rgba(240,237,230,0.3); cursor:pointer;
-      }
-      .sm-slider-input::-moz-range-thumb {
-        width:20px; height:20px; background:var(--cream);
-        border:3px solid var(--dark); box-shadow:0 0 12px rgba(240,237,230,0.3); cursor:pointer;
-      }
-      .sm-slider-range {
-        display:flex; justify-content:space-between;
-        font-family:'Barlow Condensed',sans-serif; font-size:11px;
-        letter-spacing:0.1em; color:rgba(200,196,188,0.3);
-      }
-
       /* FOOTER */
       .sm-footer {
         border-top:1px solid rgba(232,93,4,0.12); padding:40px 48px;
@@ -602,10 +568,6 @@ const canonical = `https://sauna-mind.com${Astro.url.pathname}`;
         .sm-cmp-table tbody td:first-child { font-size:12px; }
         .sm-cmp-table tfoot td { padding:14px 10px 0 10px; }
         .sm-type-badge { font-size:10px; padding:4px 10px; }
-        .sm-slider-wrap { padding:36px 20px; }
-        .sm-slider-temp { font-size:48px; }
-        .sm-slider-zone { font-size:18px; }
-        .sm-slider-desc { font-size:13px; }
         .sm-pricing-grid { grid-template-columns:1fr; }
         .sm-metrics-row { flex-direction:column; }
         .sm-zone-pills { flex-wrap:wrap; gap:6px; }
