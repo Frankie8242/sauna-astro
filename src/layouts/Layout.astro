@@ -270,13 +270,15 @@ const canonical = `https://sauna-mind.com${Astro.url.pathname}`;
       /* POINT LIST */
       .sm-point-list { list-style:none; }
       .sm-point-list li {
-        padding:10px 0; border-bottom:1px solid rgba(240,237,230,0.06);
-        font-size:15px; color:var(--cream-dim); line-height:1.5; font-weight:500;
-        display:flex; gap:14px; align-items:flex-start;
+        padding:14px 0; border-bottom:1px solid rgba(240,237,230,0.06);
+        font-size:15px; color:var(--cream-dim); line-height:1.6; font-weight:500;
+        display:flex; gap:12px; align-items:baseline;
       }
-      .sm-point-list li:last-child { border-bottom:none; }
+      .sm-point-list li:first-child { padding-top:0; }
+      .sm-point-list li:last-child { border-bottom:none; padding-bottom:0; }
       .sm-point-list li::before {
-        content:'\2014'; color:var(--orange); flex-shrink:0; font-weight:700; margin-top:1px;
+        content:''; width:6px; height:6px; background:var(--orange);
+        flex-shrink:0; margin-top:7px; display:block;
       }
       .sm-point-list li strong { color:var(--cream); font-weight:600; }
 

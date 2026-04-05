@@ -89,39 +89,6 @@ const guideHref = `${import.meta.env.BASE_URL}guide/`;
 		</div>
 	</section>
 
-	<!-- PRODUCT -->
-	<section style="background:var(--dark); border-top:1px solid rgba(232,93,4,0.12);">
-		<div class="sm-section">
-			<div class="sm-slide-label">Product</div>
-			<div class="sm-slide-title">One tap. <em>Full physiology.</em></div>
-			<div class="sm-two-col">
-				<div>
-					<ul class="sm-point-list">
-						<li><strong>Live eCBT display</strong> with zone color gradient &mdash; background shifts as your body heats up</li>
-						<li><strong>Real-time HR curve</strong> plotting your heat adaptation over session time</li>
-						<li><strong>Multi-phase sessions</strong> &mdash; Training + Sauna + Cold in a single continuous flow</li>
-						<li><strong>AI Recovery Coach</strong> &mdash; GPT-4o with full session context and thermal science knowledge</li>
-						<li><strong>History tab</strong> with zone transitions, per-phase breakdown, and filter chips</li>
-						<li><strong>PDF export</strong> + social-ready session card for sharing</li>
-					</ul>
-				</div>
-				<div style="display:flex;flex-direction:column;gap:12px;">
-					<div class="sm-mock-card">
-						<div class="sm-mock-label" style="color:var(--orange);">Active Session</div>
-						<div class="sm-mock-value" style="color:var(--zone-amber);">38.3&deg;C</div>
-						<div class="sm-mock-sub">HSP Activation Zone &middot; 23:14 elapsed</div>
-						<div class="sm-mock-bar" style="background:linear-gradient(90deg,var(--zone-blue) 0%,var(--zone-green) 40%,var(--zone-amber) 75%,transparent 75%);"></div>
-					</div>
-					<div class="sm-mock-card">
-						<div class="sm-mock-label" style="color:var(--zone-blue);">Cold Plunge &middot; Entry Shock</div>
-						<div class="sm-mock-value" style="color:var(--zone-blue);">+34 BPM</div>
-						<div class="sm-mock-sub">Sympathetic activation &middot; Vagal recovery in progress</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
 	<!-- ZONES -->
 	<section id="zones" style="background:var(--dark); border-top:1px solid rgba(232,93,4,0.12);">
 		<div class="sm-section">
@@ -167,6 +134,39 @@ const guideHref = `${import.meta.env.BASE_URL}guide/`;
 			<div class="sm-formula-box">
 				<div class="sm-formula-label">Why not time?</div>
 				<p class="sm-formula-p">Two people spending 15 minutes in the same sauna will have completely different heat adaptation responses — depending on fitness, resting heart rate, and acclimatisation.<br><br><strong>Time is a guess. Your physiology is the data.</strong></p>
+			</div>
+		</div>
+	</section>
+
+	<!-- PRODUCT -->
+	<section style="background:var(--dark); border-top:1px solid rgba(232,93,4,0.12);">
+		<div class="sm-section">
+			<div class="sm-slide-label">Product</div>
+			<div class="sm-slide-title">One tap. <em>Full physiology.</em></div>
+			<div class="sm-two-col">
+				<div>
+					<ul class="sm-point-list">
+						<li><strong>Live eCBT display</strong> &mdash; zone color gradient shifts as your body heats up</li>
+						<li><strong>Real-time HR curve</strong> &mdash; heat adaptation plotted over session time</li>
+						<li><strong>Multi-phase sessions</strong> &mdash; Training + Sauna + Cold in one flow</li>
+						<li><strong>AI Recovery Coach</strong> &mdash; full session context and thermal science</li>
+						<li><strong>Session history</strong> &mdash; zone transitions and per-phase breakdown</li>
+						<li><strong>PDF export</strong> &mdash; shareable session reports</li>
+					</ul>
+				</div>
+				<div style="display:flex;flex-direction:column;gap:12px;">
+					<div class="sm-mock-card">
+						<div class="sm-mock-label" style="color:var(--orange);">Active Session</div>
+						<div class="sm-mock-value" style="color:var(--zone-amber);">38.3&deg;C</div>
+						<div class="sm-mock-sub">HSP Activation Zone &middot; 23:14 elapsed</div>
+						<div class="sm-mock-bar" style="background:linear-gradient(90deg,var(--zone-blue) 0%,var(--zone-green) 40%,var(--zone-amber) 75%,transparent 75%);"></div>
+					</div>
+					<div class="sm-mock-card">
+						<div class="sm-mock-label" style="color:var(--zone-blue);">Cold Plunge &middot; Entry Shock</div>
+						<div class="sm-mock-value" style="color:var(--zone-blue);">+34 BPM</div>
+						<div class="sm-mock-sub">Sympathetic activation &middot; Vagal recovery in progress</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
